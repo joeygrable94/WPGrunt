@@ -1,11 +1,13 @@
-.sass-cache/
-node_modules/
-bower_components/
-
 *.css.map
 *.sass.map
 *.htaccess
 *.DS_Store
+.DS_Store
+package-lock.json
+
+.sass-cache/
+node_modules/
+bower_components/
 
 backups/FILES/*
 backups/SQL/*

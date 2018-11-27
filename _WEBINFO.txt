@@ -1,0 +1,25 @@
+
+
+WP DB
+-------------------------
+HOST:		mysql.SITENAME
+CHARSET:	utf8mb4
+NAME:		
+USER:		
+PWORD:		
+
+
+
+SSH USERS
+-------------------------
+USERNAME:		
+PASSWORD:		
+
+
+
+Wordpress.com
+-------------------------
+USERNAME:		WPadmin
+PASSWORD:		WPadmin
+
+

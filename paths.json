@@ -1,23 +1,20 @@
 {
 	"local": {
-		"host":				"localhost:8888/SITENAME/htpublic",
-		"root":				"/Applications/MAMP/htdocs/SITENAME",
-		"site_root":		"/Applications/MAMP/htdocs/SITENAME/htpublic",
-		"dump_dir":			"/Applications/MAMP/htdocs/SITENAME/backups",
-		"site_url":			"http://localhost:8888/SITENAME/htpublic",
-		"site_content":		"http://localhost:8888/SITENAME/htpublic/wp-content",
-		"stack":			"./dev_stack",
-		"sassy":			"./dev_stack/SASSy/src/sass"
+		"host":				"localhost:8888",
+		"root":				"/Users/joeygrable/Sites/localhost",
+		"mamp":				"/Applications/MAMP/Library/bin",
+		"site_root":		"/Users/joeygrable/Sites/localhost/httpublic",
+		"dump_dir":			"/Users/joeygrable/Sites/localhost/backups",
+		"site_url":			"http://localhost:8888/",
+		"dev_stack":		"./dev_stack",
+		"dist_stack":		"./httpublic/wp-content/themes/ACTIVE_THEME_NAME"
 	},
-	"remote": {
-		"site_url":			"https://SITENAME",
-		"dump_url":			"https://SITENAME/dumps"
+	"staging": {
+		"site_url":			"https://staginghost.src.pub/",
+		"dump_url":			"https://productionhost.src.pub/dumps/"
 	},
-	"wordpress": {
-		"root":				"./htpublic",
-		"content":			"/wp-content",
-		"themes":			"/wp-content/themes",
-		"active_theme":		"/wp-content/themes/SITENAME",
-		"theme_name":		"SITENAME"
+	"production": {
+		"site_url":			"https://productionhost.com/",
+		"dump_url":			"https://productionhost.com/dumps/"
 	}
 }

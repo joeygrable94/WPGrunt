@@ -1,0 +1,299 @@
+//	VARIABLES
+// ==================================================
+	// VIEWPORTS
+	$vp_min: 1px;
+	$vp_xs: 320px;
+	$vp_sm: 480px;
+	$vp_rg: 560px;
+	$vp_md: 756px;
+	$vp_ml: 960px;
+	$vp_lg: 1080px;
+	$vp_xl: 1280px;
+	$vp_xxl: 1400px;
+
+	// TypeTura fluid-type
+	$tt_xs: #{strip-unit($vp_xs)};
+	$tt_sm: #{strip-unit($vp_sm)};
+	$tt_md: #{strip-unit($vp_md)};
+	$tt_lg: #{strip-unit($vp_lg)};
+	$tt_xl: #{strip-unit($vp_xl)};
+	$tt_curve: unquote("cubic-bezier(0, 0.75, 0.1, 0.9)");
+
+	// breakpoints map
+	$bp_map: (
+		"min": 1px,
+		"xs": $vp_xs,
+		"sm": $vp_sm,
+		"md": $vp_md,
+		"lg": $vp_lg,
+		"xl": $vp_xl
+	);
+
+	// Responsive Grid Columns
+	$grid_cols: (
+		"min": 1,
+		"sm": 3,
+		"md": 6,
+		"lg": 12
+	);
+
+	// Block Sizing Utility
+	// 1/10, 1/8, 1/6, 1/4, 1/3
+	$block_sizes_map: (
+		"1-10": 10, "2-10": 20, "3-10": 30, "4-10": 40, "5-10": 50, "6-10": 60, "7-10": 70, "8-10": 80, "9-10": 90, "10-10": 100,
+		"1-8": 12.5, "2-8": 25, "3-8": 37.5, "4-8": 50, "5-8": 62.5, "6-8": 75, "7-8": 87.5, "8-8": 100,
+		"1-6": 16.66, "2-6": 33.34, "3-6": 50, "4-6": 66.66, "5-6": 83.34, "6-6": 100,
+		"1-4": 25, "2-4": 50, "3-4": 75, "4-4": 100,
+		"1-3": 33.37, "2-3": 66.66, "3-3": 100,
+		"1-2": 50, "2-2": 100,
+		"1-1": 100
+	);
+
+// GRID
+// ==================================================
+	//page cols
+	$container_max_width: $vp_xl;
+	$gsize: 3;
+	$gmargin: 3%;
+	$gmrgcnt: $gsize - 1;
+	$marginsub: $gmrgcnt * $gmargin;
+	$gridremain: (100% - $marginsub);
+	$gcolsize: $gridremain / $gsize;
+
+// NAV
+// ==================================================
+	$nav_height: 110px;
+
+// TYPOGRAPHY
+// ==================================================
+	// SCALE
+	$html_base_px: 16;
+	$font_base_px: 15;
+	$mscale: 1.618;
+
+	// FONT OPTIONS
+	$font_header: 'Julius Sans One', 'sans-serif';
+	$font_body: 'Lato', 'sans-serif';
+	
+
+	// FONT REM
+	$font_min: 1.2rem;
+	$line_min: 1.4;
+		$font_max: 1.4rem;
+		$line_max: 1.6;
+
+	// SPACERS
+	$body_spacer_min: 1rem;
+	$body_spacer_max: 2rem;
+	$drawline: 1px;
+
+// COLORS
+// ==================================================
+	// lightness value that determines when the lightness of color changes
+	// from "dark" to "light". Acceptable values are between 0 and 255.
+	$color-contrasted-threshold: 150 !default;
+
+	// customize the light and dark text colors for use in color contrast function.
+	$color-contrast-text-dark: $black50 !default;
+	$color-contrast-text-light: $white !default;
+
+	// base colors
+	$color-black:	#000000;
+	$color-white:	#ffffff;
+	$color-eggshell: #fcf9e6;
+	$color-lightgrey: #4d4d4d;
+	$color-darkgrey: #bfbfbf;
+	$color-dark: #2a2a2a;
+	
+	// button colors
+	//$color-success: #9ACD32;
+	$color-success: #75d147;
+	$color-info: #4B98DB;
+	$color-warning: #E8820E;
+	$color-error: #872E1E;
+
+	// custom colors
+	$color-gcc-yellow: #FED043;
+	$color-gcc-orange: #f98900; // #F19E27;
+	$color-gcc-red: #E46840;
+
+	$color-gcm-cool: #ABDCD7;
+	$color-gcm-grey: #588293;
+	$color-gcm-navy: #2583A0;
+
+
+// TRANSITIONS
+// ==================================================
+	$transition: unquote("all 0.5s cubic-bezier(0.20,0.35,0.66,0.75)");
+	$transition-fast: unquote("all 0.2s cubic-bezier(0.20,0.35,0.66,0.75)");
+	$transition-faster: unquote("all 0.1s cubic-bezier(0.20,0.35,0.66,0.75)");
+
+// SLIDESHOW
+// ==================================================
+	$slideshow_height: 70vh;
+
+// ELEMENTS
+// ---------------------------------------------------------------------------
+	// borders
+	$border-width-default: 5px;
+	$border-style-default: solid;
+	$border-color-default: $black30;
+	$border-radius-default: 3px;
+
+// TABLES
+// ---------------------------------------------------------------------------
+	$table-row-bordered: true !default;
+	$table-row-striped: false !default;
+
+// FORMS
+// ---------------------------------------------------------------------------
+	// input
+	$form-input-color: $black;
+	$form-input-background-color: $transparent;
+	$form-input-box-shadow: 0px 0px 5px -2px $color-darkgrey;
+
+	// input border
+	$form-input-border-width: 1px;
+	$form-input-border-color: $gray-light;
+	$form-input-border: $form-input-border-width solid $form-input-border-color;
+	$form-input-border-radius: 0px;
+
+	// disabled
+	$form-input-disabled-color: $black10;
+
+	// input focus
+	$form-input-focus-color: $black;
+	$form-input-focus-background: $transparent;
+	$form-input-focus-border-color: $color-darkgrey;
+	$form-input-focus-box-shadow: 0px 0px 5px -2px $color-darkgrey;
+
+// BUTTONS
+// ---------------------------------------------------------------------------
+	// base
+	$btn-font-size: inheret;
+	$btn-font-weight: 400;
+	$btn-border-radius: 2px;
+	$btn-border-width: 2px;
+	$btn-border-style: solid;
+	$btn-border-color: $black;
+	$btn-link-disabled-color: $gray-silver;
+
+	// default
+	$btn-default-color: $white;
+	$btn-default-background: $black;
+	// border
+	$btn-default-border-width: $btn-border-width;
+	$btn-default-border-style: $btn-border-style;
+	$btn-default-border-color: $black;
+		// :hover
+		$btn-default-color-hover: $white;
+		$btn-default-background-hover: $black70;
+		// :hover border
+		$btn-default-border-width-hover: $btn-border-width;
+		$btn-default-border-style-hover: $btn-border-style;
+		$btn-default-border-color-hover: $black;
+
+	// primary
+	$btn-primary-color: $white;
+	$btn-primary-background: $color-gcm-cool;
+	// border
+	$btn-primary-border-width: $btn-border-width;
+	$btn-primary-border-style: $btn-border-style;
+	$btn-primary-border-color: $color-gcm-cool;
+		// :hover
+		$btn-primary-color-hover: $white;
+		$btn-primary-background-hover: lighten($color-gcm-cool, 10%);
+		// :hover border
+		$btn-primary-border-width-hover: $btn-border-width;
+		$btn-primary-border-style-hover: $btn-border-style;
+		$btn-primary-border-color-hover: $color-gcm-cool;
+
+	// secondary
+	$btn-secondary-color: $white;
+	$btn-secondary-background: $color-gcc-orange;
+	// border
+	$btn-secondary-border-width: $btn-border-width;
+	$btn-secondary-border-style: $btn-border-style;
+	$btn-secondary-border-color: $color-gcc-orange;
+		// :hover
+		$btn-secondary-color-hover: $white;
+		$btn-secondary-background-hover: lighten($color-gcc-orange, 10%);
+		// :hover border
+		$btn-secondary-border-width-hover: $btn-border-width;
+		$btn-secondary-border-style-hover: $btn-border-style;
+		$btn-secondary-border-color-hover: $color-gcc-orange;
+
+	// tertiary
+	$btn-tertiary-color: $white;
+	$btn-tertiary-background: $color-gcm-navy;
+	// border
+	$btn-tertiary-border-width: $btn-border-width;
+	$btn-tertiary-border-style: $btn-border-style;
+	$btn-tertiary-border-color: $color-gcm-navy;
+		// :hover
+		$btn-tertiary-color-hover: $white;
+		$btn-tertiary-background-hover: lighten($color-gcm-navy, 10%);
+		// :hover border
+		$btn-tertiary-border-width-hover: $btn-border-width;
+		$btn-tertiary-border-style-hover: $btn-border-style;
+		$btn-tertiary-border-color-hover: $color-gcm-navy;
+
+	// success
+	$btn-success-color: $white;
+	$btn-success-background: $color-success;
+	// border
+	$btn-success-border-width: $btn-border-width;
+	$btn-success-border-style: $btn-border-style;
+	$btn-success-border-color: $color-success;
+		// :hover
+		$btn-success-color-hover: $white;
+		$btn-success-background-hover: lighten($color-success, 10%);
+		// :hover border
+		$btn-success-border-width-hover: $btn-border-width;
+		$btn-success-border-style-hover: $btn-border-style;
+		$btn-success-border-color-hover: $color-success;
+
+	// info
+	$btn-info-color: $white;
+	$btn-info-background: $color-info;
+	// border
+	$btn-info-border-width: $btn-border-width;
+	$btn-info-border-style: $btn-border-style;
+	$btn-info-border-color: $color-info;
+		// :hover
+		$btn-info-color-hover: $white;
+		$btn-info-background-hover: lighten($color-info, 10%);
+		// :hover border
+		$btn-info-border-width-hover: $btn-border-width;
+		$btn-info-border-style-hover: $btn-border-style;
+		$btn-info-border-color-hover: $color-info;
+
+	// warning
+	$btn-warning-color: $white;
+	$btn-warning-background: $color-warning;
+	// border
+	$btn-warning-border-width: $btn-border-width;
+	$btn-warning-border-style: $btn-border-style;
+	$btn-warning-border-color: $color-warning;
+		// :hover
+		$btn-warning-color-hover: $white;
+		$btn-warning-background-hover: lighten($color-warning, 10%);
+		// :hover border
+		$btn-warning-border-width-hover: $btn-border-width;
+		$btn-warning-border-style-hover: $btn-border-style;
+		$btn-warning-border-color-hover: $color-warning;
+
+	// error
+	$btn-error-color: $white;
+	$btn-error-background: $color-error;
+	// border
+	$btn-error-border-width: $btn-border-width;
+	$btn-error-border-style: $btn-border-style;
+	$btn-error-border-color: $color-error;
+		// :hover
+		$btn-error-color-hover: $white;
+		$btn-error-background-hover: lighten($color-error, 10%);
+		// :hover border
+		$btn-error-border-width-hover: $btn-border-width;
+		$btn-error-border-style-hover: $btn-border-style;
+		$btn-error-border-color-hover: $color-error;

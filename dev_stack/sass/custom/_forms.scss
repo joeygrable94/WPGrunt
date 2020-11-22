@@ -1,0 +1,120 @@
+//	FORMS
+// ==================================================
+
+
+form {
+	display: block;
+	margin: 0 auto;
+	padding: 0 0 !important;
+	@include border-box();
+}
+
+fieldset, .form-group {
+	& + .form-group {
+		padding-top: mscale($body_spacer_min,2,true);
+	}
+}
+
+// labels
+label {
+	&.wpforms-required-label { visibility: hidden !important; }
+	color: lighten($color-dark, 25%) !important;
+	font-weight: 400 !important;
+}
+
+// inputs, select, textareas
+input, select, textarea, option {
+	@include border-box();
+	@include form-input-base();
+	@include hover { cursor: pointer; }
+	@include form-input-focus();
+	border-radius: mscale($body_spacer_min,2,true);
+	padding: mscale($body_spacer_min,5,true) mscale($body_spacer_min,2,true) !important;
+}
+
+// input
+input {
+	&[type=text],
+	&[type=textarea],
+	&[type=password],
+	&[type=email] {
+		&:hover { cursor: text; }
+	}
+	&[type=submit] {
+		@include button-base(block);
+	}
+	
+	// files: make file inputs take up a whole line
+	&[type=file] {
+		display: block;
+		width: 95%;
+	}
+	
+	// checkbox & radio
+	&[type=checkbox],
+	&[type=radio] {
+		-webkit-appearance: none !important;
+				appearance: none !important;
+		display: inline-block !important;
+		position: relative !important;
+		width: mscale($body_spacer_min, 2) !important;
+		height: mscale($body_spacer_min, 2) !important;
+		margin: 0;
+		margin-left: $body_spacer_min !important;
+		margin-right: $body_spacer_min !important;
+		@include border();
+		@include border-radius($form-input-border-radius);
+		background-color: $transparent;
+		
+		// active states
+		&:active,
+		&:checked:active { position: relative; }
+		// checked
+		&:checked { position: relative; }
+		// check mark
+		&:checked:after {
+			content: '\2713';
+			font-size: 115%;
+			position: absolute;
+			top: mscale($body_spacer_min,1) * -1;
+			left: mscale($body_spacer_min,4,true);
+		}
+	}
+
+	// radio
+	&[type=radio] {
+		@include border($border-width: ( + 0.5));
+		@include border-radius($body_spacer_min / $mscale);
+	}
+
+	// transparent background
+	&.transparent {
+		-webkit-box-shadow: inset 0 0 8px  $transparent, 0 0 16px $transparent;
+		   -moz-box-shadow: inset 0 0 8px  $transparent, 0 0 16px $transparent;
+				box-shadow: inset 0 0 8px  $transparent, 0 0 16px $transparent;
+		background-color: $transparent;
+	}
+}
+
+// select fixes
+select {
+	// make select the same height as the ratio:rhythm line-height
+	&:not([size]),
+	&:not([multiple]) {
+		//height: $body_spacer_min;
+		border-radius: mscale($body_spacer_min,2,true);
+	}
+	// IE dropdown fix
+	&:focus::-ms-value {
+		color: $color-black;
+		background-color: $color-white;
+	}
+}
+
+// textarea
+textarea {
+	letter-spacing: 0.3px;
+	white-space: pre-line;
+	resize: none;
+}
+

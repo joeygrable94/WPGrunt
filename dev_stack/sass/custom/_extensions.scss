@@ -1,0 +1,132 @@
+//	EXTENTION CLASSES
+// ==================================================
+
+// CONTAINER EXTENSIONS
+.container {
+	width: 100%;
+	max-width: $container_max_width;
+	float: unset;
+	margin: 0 auto;
+	padding-left: pixels($body_spacer_min);
+	padding-left: $body_spacer_min;
+	padding-right: pixels($body_spacer_min);
+	padding-right: $body_spacer_min;
+	&#{--fluid} {
+		margin: 0;
+		max-width: 100%;
+	}
+	&#{--full} {
+		margin: 0;
+		max-width: 100vw;
+	}
+	&#{--fit} {
+		margin: auto;
+		max-width: 100vw;
+		max-height: 100vh;
+		width: 100vw;
+		height: 100vh;
+	}
+}
+.full-bleed {
+	width: 100vw;
+	margin-left: calc(50% - 50vw);
+}
+
+
+
+
+
+// LINKS
+.link-inverted {
+	color: $color-white;
+}
+
+
+
+
+
+// NAVIGATION
+ul.menu {
+	& li {
+		display: block;
+		padding: mscale( pixels($body_spacer_min), 1, true ) mscale( pixels($body_spacer_max), 1, true );
+		padding: mscale( $body_spacer_min, 1, true ) mscale( $body_spacer_max, 1, true );
+		& a {
+			padding: mscale( pixels($body_spacer_min), 1, true ) mscale( pixels($body_spacer_max), 1, true );
+			padding: mscale( $body_spacer_min, 1, true ) mscale( $body_spacer_max, 1, true );
+		}
+	}
+}
+.nav-color-inverted a {
+	color: $color-white;
+	text-decoration: none;
+}
+
+
+
+
+
+// IMAGE STATES
+.image-fit {
+	display: block;
+	position: relative;
+	& img {
+		max-height: 100%;
+		max-width: 100%;
+		width: auto;
+		height: auto;
+		position: absolute;
+		top: 0;
+		bottom: 0;
+		left: 0;
+		right: 0;
+		margin: auto;
+	}
+}
+.image-cover {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	overflow: hidden;
+	& img {
+		flex-shrink: 0;
+		min-width: 100%;
+		min-height: 100%;
+		object-fit: cover;
+	}
+}
+
+
+
+
+
+.link-color-default,
+.link-color-gcc,
+.link-color-orange, {
+	color: $color-gcc-orange;
+	&:hover {
+		text-decoration: underline;
+		color: darken($color-gcc-orange, 10%);
+	}
+	&:focus {
+		color: darken($color-gcc-orange, 10%);
+	}
+	&:visited {
+		color: $color-gcc-orange;
+	}
+}
+.link-color-gcm,
+.link-color-navy,
+.link-color-blue, {
+	color: $color-gcm-navy;
+	&:hover {
+		text-decoration: underline;
+		color: darken($color-gcm-navy, 10%);
+	}
+	&:focus {
+		color: darken($color-gcm-navy, 10%);
+	}
+	&:visited {
+		color: $color-gcm-navy;
+	}
+}

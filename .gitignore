@@ -5,6 +5,9 @@
 .DS_Store
 package-lock.json
 
+_PVT.txt
+_wp-config-db-EX.txt
+
 .sass-cache/
 node_modules/
 bower_components/
@@ -12,17 +15,4 @@ bower_components/
 backups/FILES/*
 backups/SQL/*
 
-dev_stack/SASSy/*
-
-htpublic/wp-config.php
-htpublic/wp-content/
-htpublic/wp-content/
-
-htpublic/wp-content/mu-plugins/*
-htpublic/wp-content/plugins/*
-htpublic/wp-content/themes/*
-htpublic/wp-content/upgrade/*
-htpublic/wp-content/uploads/*
-htpublic/wp-content/wp-cache-config.php
-htpublic/wp-content/cache/*
-htpublic/wp-content/advanced-cache.php
+htpublic/*

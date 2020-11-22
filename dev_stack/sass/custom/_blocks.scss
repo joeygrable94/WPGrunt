@@ -1,0 +1,103 @@
+//	BLOCK ELEMENTS
+//	cuBe method => @AndyBell - https://piccalil.li/blog/cube-css/
+// ==================================================
+
+
+
+// HERO CALLOUTS
+.hero-base {
+	position: relative;
+	padding: pixels(mscale($font_min, 3)) 0 pixels(mscale($font_min, 3)) 0;
+	padding: mscale($font_min, 3) 0 mscale($font_min, 3) 0;
+	border: none;
+	border-radius: 0;
+	box-shadow: none;
+}
+.hero {
+	&#{-dark} {
+		@extend .hero-base;
+		background-color: $color-dark;
+		& div,
+		& h1, & h2, & h3, & h4, & h5, & h6, & p {
+			color: $color-gcc-orange;
+		}
+	}
+	&#{-gcc} {
+		@extend .hero-base;
+		background-color: $color-gcc-orange;
+		& div,
+		& h1, & h2, & h3, & h4, & h5, & h6, & p {
+			color: $color-white;
+		}
+	}
+	&#{-gcm} {
+		@extend .hero-base;
+		background-color: $color-gcm-navy;
+		& div,
+		& h1, & h2, & h3, & h4, & h5, & h6, & p {
+			color: $color-white;
+		}
+	}
+	&#{-center} {
+		text-align: center;
+		& div,
+		& h1, & h2, & h3, & h4, & h5, & h6, & p {
+			text-align: center;
+		}
+	}
+}
+
+
+
+
+
+// SOCIAL ICONS
+.list-social {
+	list-style: none;
+	list-style-type: none;
+	& li a {
+		color: $color-gcm-navy;
+	}
+	& .ls-ig::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/instagram-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+	& .ls-gp::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/google-plus-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+	& .ls-pn::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/pinterest-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+	& .ls-tw::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/twitter-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+	& .ls-fb::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/facebook-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+	& .ls-li::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/linkedin-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+	& .ls-yt::before {
+		content: ''; display: inline-block; position: relative;
+		background: url("https://assets.src.pub/social-media-icons/youtube-ico.png");
+		background-color: transparent; background-repeat: no-repeat; background-size: cover;
+		top: 8px; left: -16px; width: 24px; height: 24px;
+ 	}
+ }

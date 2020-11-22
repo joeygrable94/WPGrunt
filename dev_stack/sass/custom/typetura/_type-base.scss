@@ -1,0 +1,108 @@
+//	Base Typography Styles
+/*
+
+$font_min: 120%;
+$line_min: 1.4;
+	$font_max: 140%;
+	$line_max: 1.6;
+
+$body_spacer_min: 1rem;
+$body_spacer_max: 2rem;
+
+*/
+// ==================================================
+
+// HEADERS
+body {
+	font-family: #{$font_body};
+}
+h1,h2,h3,h4,h5,h6 {
+	word-break: break-word;
+}
+
+// FONT STYLES
+h2, h3, h4, h5, h6 {
+	@extend .f-body;
+	@extend .f-body-bold;
+}
+h1 {
+	@extend .f-header;
+}
+
+// VERTICAL SPACING
+h1, h2, h3 {
+	line-height: pixels($line_min);
+	line-height: $line_min;
+}
+h4, h5, h6 {
+	line-height: pixels($line_max);
+	line-height: $line_max;
+}
+
+// FONT SIZES
+h1 {
+	font-size: pixels(mscale($font_min, 2));
+	font-size: mscale($font_min, 2);
+}
+h2 {
+	font-size: (pixels(mscale($font_max, 1)) + (pixels($font_min)/4));
+	font-size: (mscale($font_max, 1) + ($font_min/4));
+	text-transform: uppercase;
+	letter-spacing: pixels(mscale($body_spacer_min, 3, true));
+	letter-spacing: mscale($body_spacer_min, 3, true);
+}
+h3 {
+	font-size: pixels(mscale($font_min, 1));
+	font-size: mscale($font_min, 1);
+}
+h4 {
+	//font-size: (pixels($font_max) + (pixels($font_min)/6));
+	//font-size: ($font_max + $font_min/6);
+	font-size: pixels($font_min);
+	font-size: $font_min;
+}
+h5 {
+	font-size: pixels($font_min);
+	font-size: $font_min;
+}
+h6 {
+	font-size: ( pixel(mscale($font_min, 2, true)) + pixels(mscale($font_min, 2, true)) );
+	font-size: mscale($font_min, 2, true) + mscale($font_min, 2, true);
+}
+
+// BLOCK ELEMENTS
+p {}
+p + p,
+p + ul,
+p + ol,
+ul + p,
+ol + p,
+ul + ul,
+ol + ol,
+ul + ol,
+ol + ul {
+	padding-top: pixels(mscale($body_spacer_min, 1, true));
+	padding-top: mscale($body_spacer_min, 1, true);
+}
+ul {
+	margin-left: pixels(mscale($body_spacer_min,1));
+	margin-left: mscale($body_spacer_min,1);
+	list-style-type: square;
+}
+blockquote {}
+
+// LINKS
+a {
+	@extend .f-body;
+	@extend .f-body-bold;
+	text-decoration: none;
+	cursor: pointer  !important;
+	pointer-events: auto !important;
+	&:hover { text-decoration: underline; }
+	& *:hover { cursor: pointer; }
+	@extend .link-color-gcc;
+	//@extend .link-color-gcm;
+}
+
+
+

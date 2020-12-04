@@ -5,22 +5,21 @@ const sass_basic = require('node-sass');
 // GRUNT
 module.exports = function(grunt) {
 
-	// =========================
+	// -------------------------
 	// INITIALIZATION
-	// =========================
+	// -------------------------
 	grunt.initConfig({
-
-	// =========================
+	// -------------------------
 	// VARIABLES
-	// =========================
+	// -------------------------
 		pkg: grunt.file.readJSON('package.json'),
 		timestamp: grunt.template.today('yyyy-mm-dd_HH'),
 		paths: grunt.file.readJSON('paths.json'),
 		secret: grunt.file.readJSON('secret.json'),
 
-	// =========================
+	// -------------------------
 	// DEVELOPMENT TASKS
-	// =========================
+	// -------------------------
 		copy: {
 			styles: {
 				files: [
@@ -113,7 +112,7 @@ module.exports = function(grunt) {
 		concat: {
 			options: {
 				sourceMap: false,
-				separator: '\n\n\n\n\n/** ================================================== **/\n'
+				separator: '\n\n\n\n\n/** -------------------------------------------------- **/\n'
 			},
 			dist: {
 				src: [
@@ -157,9 +156,9 @@ module.exports = function(grunt) {
 			}
 		},
 
-	// =========================
+	// -------------------------
 	// DEPLOYMENT TASKS
-	// =========================
+	// -------------------------
 		// remote commands
 		sshexec: {
 
@@ -349,15 +348,15 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// =========================
+	// -------------------------
 	// LOAD PLUGINS
-	// =========================
+	// -------------------------
 	require('load-grunt-tasks')(grunt);
 
 
-	// =========================
+	// -------------------------
 	// DEVELOPMENT TASK RUNNERS
-	// =========================
+	// -------------------------
 	grunt.registerTask('default', [
 		'sass',
 		'postcss',
@@ -370,9 +369,9 @@ module.exports = function(grunt) {
 
 
 
-	// =========================
+	// -------------------------
 	// BACKUP TASK RUNNERS
-	// =========================
+	// -------------------------
 
 		// FILE BACKUP
 		// -------------------------
@@ -420,9 +419,9 @@ module.exports = function(grunt) {
 
 
 
-	// =========================
+	// -------------------------
 	// STAGING TASK RUNNERS
-	// =========================
+	// -------------------------
 
 		// DB SYNC
 		// -------------------------
@@ -462,9 +461,9 @@ module.exports = function(grunt) {
 
 
 
-	// =========================
+	// -------------------------
 	// PRODUCTION TASK RUNNERS
-	// =========================
+	// -------------------------
 
 		// DB SYNC
 		// -------------------------

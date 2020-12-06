@@ -1,39 +1,20 @@
 {
 	"local": {
-<<<<<<< HEAD
-		"host":				"gcflytours.local:8888",
-		"root":				"/Users/joeygrable/Sites/GCFlyTours",
+		"host":				"website.local:8888",
+		"root":				"/path_to_website/websitename",
 		"mamp":				"/Applications/MAMP/Library/bin",
-		"site_root":		"/Users/joeygrable/Sites/GCFlyTours/httpublic",
+		"site_root":			"/path_to_website/httpublic",
 		"dump_dir":			"/Users/joeygrable/Sites/GCFlyTours/backups",
 		"site_url":			"http://gcflytours.local:8888/",
-		"dev_stack":		"./dev_stack",
-		"dist_stack":		"./httpublic/lib/"
+		"dev_stack":			"./dev_stack",
+		"dist_stack":			"./httpublic/lib/"
 	},
 	"staging": {
-		"site_url":			"https://gcflytours.src.pub/",
-		"dump_url":			"https://gcflytours.src.pub/dumps/"
+		"site_url":			"https://stagingurl.src.pub/",
+		"dump_url":			"https://stagingurl.src.pub/dumps/"
 	},
 	"production": {
 		"site_url":			"",
 		"dump_url":			""
-=======
-		"host":				"getcommunity.local:8888",
-		"root":				"/Users/joeygrable/Sites/GetCommunity",
-		"mamp":				"/Applications/MAMP/Library/bin",
-		"site_root":		"/Users/joeygrable/Sites/GetCommunity/httpublic",
-		"dump_dir":			"/Users/joeygrable/Sites/GetCommunity/backups",
-		"site_url":			"http://getcommunity.local:8888/",
-		"dev_stack":		"./dev_stack",
-		"dist_stack":		"./httpublic/wp-content/themes/_s"
-	},
-	"staging": {
-		"site_url":			"https://getcommunity.src.pub/",
-		"dump_url":			"https://getcommunity.src.pub/dumps/"
-	},
-	"production": {
-		"site_url":			"https://getcommunity.com/",
-		"dump_url":			"https://getcommunity.com/dumps/"
->>>>>>> ea10e4197bf27666522c6a29d16bb3829d509863
 	}
 }

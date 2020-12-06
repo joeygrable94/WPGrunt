@@ -1,37 +1,37 @@
 //	BUTTONS
 // ==================================================
 
-
 .button {
 	@include button-base();
 	@include button-size(2, 1, true);
 }
-.button-orange {
-	border-radius: $border-radius-default !important;
-	border-style: solid !important;
-	border-color: lighten($color-gcc-orange, 10%) !important;
-	background-color: $color-gcc-orange !important;
-	color: $color-white !important;
-	& * { color: $color-white !important; }
+
+.button-primary {
+	border-radius: $border-radius-default;
+	border-style: solid;
+	border-color: lighten($color-primary, 10%);
+	background-color: $color-primary;
+	color: $color-white;
+	& * { color: $color-white; }
 	@include transition();
 	&:hover {
-		background-color: $color-gcm-navy !important;
-		border-color: $color-gcm-cool !important;
+		background-color: darken($color-primary, 10%);
+		border-color: $color-primary;
 		cursor: pointer;
 	}
 }
 
 .button-blue {
-	border-radius: $border-radius-default !important;
-	border-style: solid !important;
-	border-color: lighten($color-gcm-navy, 10%) !important;
-	background-color: $color-gcm-navy !important;
-	color: $color-white !important;
-	& * { color: $color-white !important; }
+	border-radius: $border-radius-default;
+	border-style: solid;
+	border-color: lighten($color-secondary, 10%);
+	background-color: $color-secondary;
+	color: $color-white;
+	& * { color: $color-white; }
 	@include transition();
 	&:hover {
-		background-color: $color-gcc-orange !important;
-		border-color: $color-gcc-yellow !important;
+		background-color: darken($color-secondary, 10%);
+		border-color: $color-secondary;
 		cursor: pointer;
 	}
 }

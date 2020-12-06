@@ -1,11 +1,10 @@
 //	FORMS
 // ==================================================
 
-
 form {
 	display: block;
 	margin: 0 auto;
-	padding: 0 0 !important;
+	padding: 0 0;
 	@include border-box();
 }
 
@@ -28,8 +27,10 @@ input, select, textarea, option {
 	@include form-input-base();
 	@include hover { cursor: pointer; }
 	@include form-input-focus();
-	border-radius: mscale($body_spacer_min,2,true);
-	padding: mscale($body_spacer_min,5,true) mscale($body_spacer_min,2,true) !important;
+	border-radius: pixels(mscale($body_spacer_min,2,true)) !important;
+	border-radius: mscale($body_spacer_min,2,true) !important;
+	padding: pixels(mscale($body_spacer_min,1,true)) pixels($body_spacer_min) !important;
+	padding: mscale($body_spacer_min,1,true) $body_spacer_min !important;
 }
 
 // input
@@ -57,27 +58,33 @@ input {
 				appearance: none !important;
 		display: inline-block !important;
 		position: relative !important;
-		width: mscale($body_spacer_min, 2) !important;
-		height: mscale($body_spacer_min, 2) !important;
+		width: $body_spacer_min*1.5 !important;
+		height: $body_spacer_min*1.5 !important;
 		margin: 0;
-		margin-left: $body_spacer_min !important;
-		margin-right: $body_spacer_min !important;
+		margin-left: $body_spacer_min;
+		margin-right: $body_spacer_min;
+		padding: pixels(mscale($body_spacer_min,1,true)) !important;
+		padding: mscale($body_spacer_min,1,true) !important;
 		@include border();
 		@include border-radius($form-input-border-radius);
 		background-color: $transparent;
+		vertical-align: top !important;
 		
 		// active states
 		&:active,
 		&:checked:active { position: relative; }
 		// checked
-		&:checked { position: relative; }
+		&:checked {}
 		// check mark
 		&:checked:after {
 			content: '\2713';
-			font-size: 115%;
+			font-size: 120%;
+			//position: relative;
 			position: absolute;
-			top: mscale($body_spacer_min,1) * -1;
-			left: mscale($body_spacer_min,4,true);
+			top: 1px;
+			left: 4px;
+			//top: -1px;
+			//left: -1px;
 		}
 	}
 
@@ -86,6 +93,9 @@ input {
 		@include border($border-width: ( + 0.5));
 		@include border-radius($body_spacer_min / $mscale);
 	}
+
+	// telephone
+	&[type=tel] {}
 
 	// transparent background
 	&.transparent {

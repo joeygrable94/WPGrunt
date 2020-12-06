@@ -1,20 +1,20 @@
 {
 	"local": {
-		"host":				"localhost:8888",
-		"root":				"/Users/joeygrable/Sites/localhost",
+		"host":				"gcflytours.local:8888",
+		"root":				"/Users/joeygrable/Sites/GCFlyTours",
 		"mamp":				"/Applications/MAMP/Library/bin",
-		"site_root":		"/Users/joeygrable/Sites/localhost/httpublic",
-		"dump_dir":			"/Users/joeygrable/Sites/localhost/backups",
-		"site_url":			"http://localhost:8888/",
+		"site_root":		"/Users/joeygrable/Sites/GCFlyTours/httpublic",
+		"dump_dir":			"/Users/joeygrable/Sites/GCFlyTours/backups",
+		"site_url":			"http://gcflytours.local:8888/",
 		"dev_stack":		"./dev_stack",
-		"dist_stack":		"./httpublic/wp-content/themes/ACTIVE_THEME_NAME"
+		"dist_stack":		"./httpublic/lib/"
 	},
 	"staging": {
-		"site_url":			"https://staginghost.src.pub/",
-		"dump_url":			"https://productionhost.src.pub/dumps/"
+		"site_url":			"https://gcflytours.src.pub/",
+		"dump_url":			"https://gcflytours.src.pub/dumps/"
 	},
 	"production": {
-		"site_url":			"https://productionhost.com/",
-		"dump_url":			"https://productionhost.com/dumps/"
+		"site_url":			"",
+		"dump_url":			""
 	}
 }

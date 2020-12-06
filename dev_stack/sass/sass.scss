@@ -2,7 +2,6 @@
 // ==================================================
 @charset "UTF-8";
 
-/**
 // VENDORS
 //@import "vendor/color-blend-modes";
 @import "vendor/colors/colors";
@@ -20,6 +19,9 @@
 // CONFIGURE
 @import "custom/variables";
 @import "custom/extensions";
+@import "custom/forms";
+@import "custom/buttons";
+//@import "custom/slideshow/slideshow-base";
 
 // TYPESETTING
 @import "custom/typetura/typesettings";
@@ -29,9 +31,3 @@
 @import "custom/utilities";
 @import "custom/blocks";
 @import "custom/exceptions";
-
-// ADDONS
-@import "custom/forms";
-@import "custom/buttons";
-@import "custom/slideshow/slideshow-base";
-**/

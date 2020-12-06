@@ -1,16 +1,70 @@
 //	Base Typography Styles
-/*
-
-$font_min: 120%;
-$line_min: 1.4;
-	$font_max: 140%;
-	$line_max: 1.6;
-
-$body_spacer_min: 1rem;
-$body_spacer_max: 2rem;
-
-*/
 // ==================================================
+
+// TYPOGRAPHY
+// baseline grid
+//@include baseline(10px);
+
+// font sizes
+.font-1_5x { font-size: 150% !important; }
+.font-2x { font-size: 200% !important; }
+.font-3x { font-size: 300% !important; }
+.font-4x { font-size: 400% !important; }
+.font-5x { font-size: 500% !important; }
+.font-6x { font-size: 600% !important; }
+.font-7x { font-size: 700% !important; }
+.font-8x { font-size: 800% !important; }
+.font-9x { font-size: 900% !important; }
+.font-10x { font-size: 1000% !important; }
+
+// font cases
+.all-caps {
+	text-transform: uppercase !important;
+	letter-spacing: pixels(mscale($body_spacer_min, 3, true)) !important;
+	letter-spacing: mscale($body_spacer_min, 3, true) !important;
+}
+.small-caps {
+	font-weight: 700;
+	text-transform: uppercase;
+	font-variant: small-caps;
+	letter-spacing: pixels(0.1rem);
+	letter-spacing: 0.1rem;
+	padding-top: pixels( mscale($body_spacer_min, 1, true) ) !important;
+	padding-bottom: pixels($body_spacer_min) !important;
+	padding-top: mscale($body_spacer_min, 1, true) !important;
+	padding-bottom: ($body_spacer_min) !important;
+}
+.unset-caps {
+	text-transform: initial !important;
+	letter-spacing: 0px !important;
+}
+.letterspaced {
+	letter-spacing: pixels(mscale($body_spacer_min, 6, true));
+	letter-spacing: mscale($body_spacer_min, 6, true);
+}
+.oldstyle-nums {
+	font-variant-numeric: oldstyle-nums;
+}
+
+// alignment
+.text-center { text-align: center; }
+.text-left { text-align: left; }
+.text-right { text-align: right; }
+
+// lists
+.list-none {
+	list-style-type: none;
+	list-style: none;
+	padding-left: 0rem;
+	margin: 0rem;
+}
+.list-bullet {
+	list-style-type: bullet;
+	list-style: bullet;
+}
+.break::before {
+	content: "\A";
+}
 
 // HEADERS
 body {
@@ -23,7 +77,6 @@ h1,h2,h3,h4,h5,h6 {
 // FONT STYLES
 h2, h3, h4, h5, h6 {
 	@extend .f-body;
-	@extend .f-body-bold;
 }
 h1 {
 	@extend .f-header;
@@ -33,33 +86,30 @@ h1 {
 h1, h2, h3 {
 	line-height: pixels($line_min);
 	line-height: $line_min;
+	@extend .f-body-bold;
 }
 h4, h5, h6 {
-	line-height: pixels($line_max);
-	line-height: $line_max;
+	line-height: pixels($line_min);
+	line-height: $line_min;
+
 }
 
 // FONT SIZES
 h1 {
-	font-size: pixels(mscale($font_min, 2));
-	font-size: mscale($font_min, 2);
+	font-size: pixels(mscale($font_max, 1));
+	font-size: mscale($font_max, 1);
 }
 h2 {
-	font-size: (pixels(mscale($font_max, 1)) + (pixels($font_min)/4));
-	font-size: (mscale($font_max, 1) + ($font_min/4));
-	text-transform: uppercase;
-	letter-spacing: pixels(mscale($body_spacer_min, 3, true));
-	letter-spacing: mscale($body_spacer_min, 3, true);
+	font-size: pixels($font_max);
+	font-size: $font_max;
 }
 h3 {
-	font-size: pixels(mscale($font_min, 1));
-	font-size: mscale($font_min, 1);
+	font-size: ( pixels($font_min) + pixels(mscale($font_min,3,true)) );
+	font-size: ( $font_min + mscale($font_min,3,true) );
 }
 h4 {
-	//font-size: (pixels($font_max) + (pixels($font_min)/6));
-	//font-size: ($font_max + $font_min/6);
-	font-size: pixels($font_min);
-	font-size: $font_min;
+	font-size: ( pixels($font_min) + pixels(mscale($font_min,6,true)) );
+	font-size: ( $font_min + mscale($font_min,6,true) );
 }
 h5 {
 	font-size: pixels($font_min);
@@ -68,6 +118,56 @@ h5 {
 h6 {
 	font-size: ( pixel(mscale($font_min, 2, true)) + pixels(mscale($font_min, 2, true)) );
 	font-size: mscale($font_min, 2, true) + mscale($font_min, 2, true);
+}
+p, ol, ul, blockquote {
+	font-size: pixels(1rem);
+	font-size: 1rem;
+}
+
+// RESPOND
+@media screen and (min-width: $vp_rg) {
+
+	// VERTICAL SPACING
+	h1, h2, h3 {
+		line-height: pixels($line_max);
+		line-height: $line_max;
+	}
+	h4, h5, h6 {
+		line-height: pixels($line_max);
+		line-height: $line_max;
+	}
+
+	// FONT SIZES
+	h1 {
+		font-size: pixels(mscale($font_min, 2));
+		font-size: mscale($font_min, 2);
+	}
+	h2 {
+		font-size: (pixels(mscale($font_max, 1)) + (pixels($font_min)/4));
+		font-size: (mscale($font_max, 1) + ($font_min/4));
+	}
+	h3 {
+		font-size: ( pixels(mscale($font_min, 1)) + pixels(mscale($font_min,3,true)) );
+		font-size: ( mscale($font_min, 1) + mscale($font_min,3,true) );
+	}
+	h4 {
+		font-size: ( pixels($font_min) + pixels(mscale($font_min,2,true)) );
+		font-size: ( $font_min + mscale($font_min,2,true) );
+	}
+	h5 {
+		font-size: ( pixels($font_min) + pixels(mscale($font_min,2,true)) );
+		font-size: ( $font_min + mscale($font_min,2,true) );
+	}
+	h6 {
+		font-size: pixels($font_min);
+		font-size: $font_min;
+	}
+
+	p, ol, ul, blockquote {
+		font-size: pixels($font_min);
+		font-size: $font_min;
+	}
+
 }
 
 // BLOCK ELEMENTS
@@ -87,22 +187,17 @@ ol + ul {
 ul {
 	margin-left: pixels(mscale($body_spacer_min,1));
 	margin-left: mscale($body_spacer_min,1);
-	list-style-type: square;
+	list-style-type: disc;
+	& > ul { list-style-type: circle; }
 }
 blockquote {}
+small { font-size: 100%; }
 
 // LINKS
 a {
-	@extend .f-body;
-	@extend .f-body-bold;
 	text-decoration: none;
 	cursor: pointer  !important;
 	pointer-events: auto !important;
 	&:hover { text-decoration: underline; }
 	& *:hover { cursor: pointer; }
-	@extend .link-color-gcc;
-	//@extend .link-color-gcm;
 }
-
-
-

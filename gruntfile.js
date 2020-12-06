@@ -5,22 +5,21 @@ const sass_basic = require('node-sass');
 // GRUNT
 module.exports = function(grunt) {
 
-	// =========================
+	// -------------------------
 	// INITIALIZATION
-	// =========================
+	// -------------------------
 	grunt.initConfig({
-
-	// =========================
+	// -------------------------
 	// VARIABLES
-	// =========================
+	// -------------------------
 		pkg: grunt.file.readJSON('package.json'),
 		timestamp: grunt.template.today('yyyy-mm-dd_HH'),
 		paths: grunt.file.readJSON('paths.json'),
 		secret: grunt.file.readJSON('secret.json'),
 
-	// =========================
+	// -------------------------
 	// DEVELOPMENT TASKS
-	// =========================
+	// -------------------------
 		copy: {
 			styles: {
 				files: [
@@ -38,7 +37,7 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						flatten: true,
-						src: ['<%= paths.local.dev_stack %>/js/compiled/scripts.min.js'],
+						src: ['<%= paths.local.dev_stack %>/js/to_dist/scripts.min.js'],
 						dest: '<%= paths.local.dist_stack %>/js/',
 						filter: 'isFile'
 					}
@@ -113,14 +112,14 @@ module.exports = function(grunt) {
 		concat: {
 			options: {
 				sourceMap: false,
-				separator: '\n\n\n\n\n/** ================================================== **/\n'
+				separator: '\n\n\n\n\n/** -------------------------------------------------- **/\n'
 			},
 			dist: {
 				src: [
 					'<%= paths.local.dev_stack %>/js/vendors/*.js',
 					'<%= paths.local.dev_stack %>/js/src/*.js'
 				],
-				dest: '<%= paths.local.dev_stack %>/js/concatenated/scripts.concat.js'
+				dest: '<%= paths.local.dev_stack %>/js/to_dist/scripts.concat.js'
 			}
 		},
 
@@ -131,9 +130,9 @@ module.exports = function(grunt) {
 			},
 			build : {
 				src : [
-					'<%= paths.local.dev_stack %>/js/concatenated/scripts.concat.js'
+					'<%= paths.local.dev_stack %>/js/to_dist/scripts.concat.js'
 				],
-				dest: '<%= paths.local.dev_stack %>/js/compiled/scripts.min.js'
+				dest: '<%= paths.local.dev_stack %>/js/to_dist/scripts.min.js'
 
 			}
 		},
@@ -157,9 +156,9 @@ module.exports = function(grunt) {
 			}
 		},
 
-	// =========================
+	// -------------------------
 	// DEPLOYMENT TASKS
-	// =========================
+	// -------------------------
 		// remote commands
 		sshexec: {
 
@@ -349,15 +348,15 @@ module.exports = function(grunt) {
 		}
 	});
 
-	// =========================
+	// -------------------------
 	// LOAD PLUGINS
-	// =========================
+	// -------------------------
 	require('load-grunt-tasks')(grunt);
 
 
-	// =========================
+	// -------------------------
 	// DEVELOPMENT TASK RUNNERS
-	// =========================
+	// -------------------------
 	grunt.registerTask('default', [
 		'sass',
 		'postcss',
@@ -370,9 +369,9 @@ module.exports = function(grunt) {
 
 
 
-	// =========================
+	// -------------------------
 	// BACKUP TASK RUNNERS
-	// =========================
+	// -------------------------
 
 		// FILE BACKUP
 		// -------------------------
@@ -420,9 +419,9 @@ module.exports = function(grunt) {
 
 
 
-	// =========================
+	// -------------------------
 	// STAGING TASK RUNNERS
-	// =========================
+	// -------------------------
 
 		// DB SYNC
 		// -------------------------
@@ -462,9 +461,9 @@ module.exports = function(grunt) {
 
 
 
-	// =========================
+	// -------------------------
 	// PRODUCTION TASK RUNNERS
-	// =========================
+	// -------------------------
 
 		// DB SYNC
 		// -------------------------

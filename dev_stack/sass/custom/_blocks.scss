@@ -2,16 +2,34 @@
 //	cuBe method => @AndyBell - https://piccalil.li/blog/cube-css/
 // ==================================================
 
-
+// Show Full Height Module
+.height-hidden {
+	height: 0px !important;
+	max-height: 0px !important;
+	transition: $transition;
+}
+.height-visible {
+	height: 100% !important;
+	max-height: none !important;
+	transition: $transition;
+}
 
 // HERO CALLOUTS
 .hero-base {
 	position: relative;
-	padding: pixels(mscale($font_min, 3)) 0 pixels(mscale($font_min, 3)) 0;
-	padding: mscale($font_min, 3) 0 mscale($font_min, 3) 0;
+	padding: pixels(mscale($body_spacer_min, 2)) 0 pixels(mscale($body_spacer_min, 2)) 0;
+	padding: mscale($body_spacer_min, 2) 0 mscale($body_spacer_min, 2) 0;
 	border: none;
 	border-radius: 0;
 	box-shadow: none;
+	max-width: 100% !important;
+	& > * {
+		@extend .container;
+		float: none !important;
+	}
+	& h1, & h2, & h3, & h4, & h5, & h6, & p {
+		@extend .f-header;
+	}
 }
 .hero {
 	&#{-dark} {
@@ -39,6 +57,7 @@
 		}
 	}
 	&#{-center} {
+		@extend .hero-base;
 		text-align: center;
 		& div,
 		& h1, & h2, & h3, & h4, & h5, & h6, & p {
@@ -47,57 +66,50 @@
 	}
 }
 
-
-
-
-
 // SOCIAL ICONS
 .list-social {
 	list-style: none;
 	list-style-type: none;
-	& li a {
-		color: $color-gcm-navy;
-	}
 	& .ls-ig::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/instagram-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
+	}
 	& .ls-gp::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/google-plus-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
+	}
 	& .ls-pn::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/pinterest-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
+	}
 	& .ls-tw::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/twitter-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
+	}
 	& .ls-fb::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/facebook-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
+	}
 	& .ls-li::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/linkedin-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
+	}
 	& .ls-yt::before {
 		content: ''; display: inline-block; position: relative;
 		background: url("https://assets.src.pub/social-media-icons/youtube-ico.png");
 		background-color: transparent; background-repeat: no-repeat; background-size: cover;
 		top: 8px; left: -16px; width: 24px; height: 24px;
- 	}
- }
+	}
+}

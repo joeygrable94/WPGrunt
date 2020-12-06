@@ -8,8 +8,10 @@
 	$vp_md: 756px;
 	$vp_ml: 960px;
 	$vp_lg: 1080px;
-	$vp_xl: 1280px;
-	$vp_xxl: 1400px;
+	$vp_xl: 1140px;
+	$vp_xxl: 1280px;
+	$vp_xxxl: 1440px;
+	$vp_max: 1920px;
 
 	// TypeTura fluid-type
 	$tt_xs: #{strip-unit($vp_xs)};
@@ -52,8 +54,7 @@
 // GRID
 // ==================================================
 	//page cols
-	$container_max_width: $vp_xl;
-	$gsize: 3;
+	$gsize: 12;
 	$gmargin: 3%;
 	$gmrgcnt: $gsize - 1;
 	$marginsub: $gmrgcnt * $gmargin;
@@ -68,7 +69,7 @@
 // ==================================================
 	// SCALE
 	$html_base_px: 16;
-	$font_base_px: 15;
+	$font_base_px: 14;
 	$mscale: 1.618;
 
 	// FONT OPTIONS
@@ -106,8 +107,7 @@
 	$color-dark: #2a2a2a;
 	
 	// button colors
-	//$color-success: #9ACD32;
-	$color-success: #75d147;
+	$color-success: #75d147; // #9ACD32
 	$color-info: #4B98DB;
 	$color-warning: #E8820E;
 	$color-error: #872E1E;
@@ -116,10 +116,14 @@
 	$color-gcc-yellow: #FED043;
 	$color-gcc-orange: #f98900; // #F19E27;
 	$color-gcc-red: #E46840;
-
 	$color-gcm-cool: #ABDCD7;
 	$color-gcm-grey: #588293;
 	$color-gcm-navy: #2583A0;
+
+	// set PRIMARY, SECONDARY, TERTIARY
+	$color-primary: $color-gcc-orange;
+	$color-secondary: $color-gcm-navy;
+	$color-tertiary: $color-gcm-navy;
 
 
 // TRANSITIONS
@@ -154,7 +158,7 @@
 
 	// input border
 	$form-input-border-width: 1px;
-	$form-input-border-color: $gray-light;
+	$form-input-border-color: $color-darkgrey;
 	$form-input-border: $form-input-border-width solid $form-input-border-color;
 	$form-input-border-radius: 0px;
 

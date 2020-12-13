@@ -1,0 +1,15 @@
+// --------------------------------------------------
+//	TYPE CONTEXTS
+
+	// ROOT
+	:root {
+		font-size: (($font_base_px/$html_base_px) * 100) + 0%;
+		line-height: 1;
+	}
+	html {
+		text-rendering: geometricPrecision;
+		font-size: (($font_base_px/$html_base_px) * 100) + 0%;
+	}
+	body {
+		font-size: 100%;
+	}

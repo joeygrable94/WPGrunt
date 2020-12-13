@@ -103,7 +103,7 @@ module.exports = function(grunt) {
 			options: {
 				esversion: 6,
 				globals: {
-					jQuery: true
+					jQuery: false
 				}
 			}
 		},
@@ -116,7 +116,6 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'<%= paths.local.dev_stack %>/js/vendors/*.js',
 					'<%= paths.local.dev_stack %>/js/src/*.js'
 				],
 				dest: '<%= paths.local.dev_stack %>/js/to_dist/scripts.concat.js'

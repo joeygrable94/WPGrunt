@@ -5,14 +5,14 @@
 .DS_Store
 package-lock.json
 
-_PVT.txt
-_wp-config-db-EX.txt
-
 .sass-cache/
 node_modules/
 bower_components/
 
-backups/FILES/*
-backups/SQL/*
+backups/FILES/
+backups/SQL/
 
-htpublic/*
+httpublic/
+
+_notes/
+dev_stack/fonts/

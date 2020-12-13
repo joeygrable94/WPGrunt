@@ -1,5 +1,5 @@
 // assign a function name to a specific element passively
-setEventListener = function(elm, action, runFunc) {
+var setEventListener = function(elm, action, runFunc) {
 	var passiveSupported = false;
 	try {
 		var options = {

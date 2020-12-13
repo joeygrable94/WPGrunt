@@ -1,33 +1,36 @@
-//	SASSY IMPORTS
+//	SASS(y) IMPORTS
 // ==================================================
 @charset "UTF-8";
 
-// VENDORS
-//@import "vendor/color-blend-modes";
-@import "vendor/colors/colors";
-//@import "vendor/animate/animate";
-//@import "vendor/mailchimp-slim";
-
-// INCLUDES
+// BASE
 @import "base/mixins";
 @import "base/functions";
 @import "base/grid";
 @import "base/font-face";
-@import "vendor/vendor-fonts";
-@import "vendor/reset-normalize";
 
-// CONFIGURE
+// VENDORS
+@import "vendors/colors/colors";
+//@import "vendors/color-blend-modes";
+//@import "vendors/animate/animate";
+//@import "vendors/mailchimp-slim";
+@import "vendors/reset-normalize";
+
+// CONFIGURE VARS + EXTENDABLES
 @import "custom/variables";
-@import "custom/extensions";
-@import "custom/forms";
-@import "custom/buttons";
-//@import "custom/slideshow/slideshow-base";
+@import "lib/extendables";
 
-// TYPESETTING
-@import "custom/typetura/typesettings";
+// SET TYPE
+@import "typesetter/build";
 
 // CUBE METHODOLOGY
-@import "custom/composition";
-@import "custom/utilities";
-@import "custom/blocks";
-@import "custom/exceptions";
+@import "custom/composition";	// Composition: for layout ONLY
+@import "custom/utilities";		// Utilities: custom extendables
+@import "custom/blocks";		// Blocks: individual components
+@import "custom/exceptions";	// Exceptions: rules are built to be broken
+
+// ADDONS
+@import "lib/forms";
+@import "lib/tables";
+@import "lib/buttons";
+@import "lib/buttons-wp";
+@import "lib/slideshow/slideshow-base";

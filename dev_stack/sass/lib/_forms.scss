@@ -16,9 +16,10 @@ fieldset, .form-group {
 
 // labels
 label {
-	&.wpforms-required-label { visibility: hidden !important; }
-	color: lighten($color-dark, 25%) !important;
-	font-weight: 400 !important;
+	color: $color-dark;
+	font-weight: 400;
+	font-size: pixels(1rem);
+	font-size: 1rem;
 }
 
 // inputs, select, textareas
@@ -42,7 +43,11 @@ input {
 		&:hover { cursor: text; }
 	}
 	&[type=submit] {
-		@include button-base(block);
+		@extend .button-base;
+		@extend .button-primary;
+	}
+	&[type=submit]:disabled {
+		@extend .button-disabled;
 	}
 	
 	// files: make file inputs take up a whole line

@@ -1,0 +1,48 @@
+{
+    "wp_theme": "GC",
+    "dev_stack": "./dev_stack",
+    "dist_stack": "./httpublic/wp-content/themes/GC/assets",
+    "local": {
+        "mamp": "/Applications/MAMP/Library/bin",
+        "host": "wpgrunt.local",
+        "port": "8888",
+        "db_host": "localhost",
+        "db_name": "wpgruntdb",
+        "db_user": "root",
+        "db_password": "root",
+        "root": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt",
+        "site_dir": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt/httpublic",
+        "dump_path": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt/httpublic/dumps",
+        "backups": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt/backups",
+        "access": "http://",
+        "db_pass": "root"
+    },
+    "staging": {
+        "ssh_user": "SSH_USER",
+        "ssh_pass": "SSH_PASS",
+        "host": "SITEURL.src.pub",
+        "port": "22",
+        "db_host": "mysql.SITEURL.src.pub",
+        "db_name": "SITEURL_db",
+        "db_user": "DB_USER",
+        "db_password": "DB_PASS",
+        "site_dir": "/home/SSH_USER/SITEURL.src.pub",
+        "dump_path": "/home/SSH_USER/SITEURL.src.pub/dumps",
+        "access": "http://",
+        "db_pass": "DB_PASS"
+    },
+    "production": {
+        "ssh_user": "SSH_USER",
+        "ssh_pass": "SSH_PASS",
+        "host": "SITEURL.com",
+        "port": "22",
+        "db_host": "mysql.SITEURL.com",
+        "db_name": "SITEURL_db",
+        "db_user": "DB_USER",
+        "db_password": "DB_PASS",
+        "site_dir": "/home/SSH_USER/SITEURL.com",
+        "dump_path": "/home/SSH_USER/SITEURL.com/dumps",
+        "access": "http://",
+        "db_pass": "DB_PASS"
+    }
+}

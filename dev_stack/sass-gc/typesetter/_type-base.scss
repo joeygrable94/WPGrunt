@@ -1,0 +1,247 @@
+// --------------------------------------------------
+//	Base Typography Styles
+
+// --------------------------------------------------
+// EXTENSIONS
+	// font sizers
+	.font-1_5x { font-size: 150% !important; }
+	.font-2x { font-size: 200% !important; }
+	.font-3x { font-size: 300% !important; }
+	.font-4x { font-size: 400% !important; }
+	.font-5x { font-size: 500% !important; }
+	.font-6x { font-size: 600% !important; }
+	.font-7x { font-size: 700% !important; }
+	.font-8x { font-size: 800% !important; }
+	.font-9x { font-size: 900% !important; }
+	.font-10x { font-size: 1000% !important; }
+	// font case
+	.font-small-cap {
+		font-weight: 700;
+		text-transform: uppercase;
+		font-variant: small-caps;
+		letter-spacing: 0.1rem;
+		padding-top: ($body_spacer_min / $mscale) !important;
+		padding-bottom: ($body_spacer_min) !important;
+	}
+	.font-oldstyle-nums {
+		font-variant-numeric: oldstyle-nums;
+	}
+	// CAPS 
+	.letterspaced {
+		letter-spacing: pixels(mscale($body_spacer_min, 6, true));
+		letter-spacing: mscale($body_spacer_min, 6, true);
+	}
+	.letterspaced-md {
+		letter-spacing: pixels(mscale($body_spacer_min, 3, true));
+		letter-spacing: mscale($body_spacer_min, 3, true);
+	}
+	.all-caps {
+		text-transform: uppercase;
+		@extend .letterspaced;
+	}
+	.unset-caps {
+		text-transform: initial;
+		letter-spacing: 0px !important;
+	}
+	// font alignment
+	.text-center, .font-center, .align-center {
+		text-align: center;	margin-left: auto;	margin-right: auto;	}
+	.text-left, .font-left, .align-left {
+		text-align: left;	margin-left: auto;	margin-right: 0;	}
+	.text-right, .font-right, .align-right {
+		text-align: right;	margin-left: 0;		margin-right: auto;	}
+
+
+// --------------------------------------------------
+// BASE
+	body { font-family: #{$font_body}; }
+	h1,h2,h3,h4,h5,h6 { word-break: break-word; }
+
+
+// --------------------------------------------------
+// FONT STYLES
+	h1 {
+		@extend .f-header;
+		@extend .all-caps;
+	}
+	h2 {
+		@extend .f-body-bold;
+		@extend .letterspaced;
+	}
+	h3 {
+		@extend .f-body-bold;
+	}
+	h4 {
+		@extend .f-body;
+	}
+	h5 {
+		@extend .f-body-light-italic;
+	}
+	h6 {
+		@extend .f-body;
+		@extend .all-caps;
+	}
+
+
+// --------------------------------------------------
+// VERTICAL SPACING
+	h1, h2, h3 {
+		line-height: pixels($line_min);
+		line-height: $line_min;
+	}
+	h4, h5, h6 {
+		line-height: pixels($line_min);
+		line-height: $line_min;
+	}
+	// RESPOND TO: 
+	@media screen and (min-width: $vp_rg) {
+		// VERTICAL SPACING
+		h1, h2, h3 {
+			line-height: pixels($line_max);
+			line-height: $line_max;
+		}
+		h4, h5, h6 {
+			line-height: pixels($line_max);
+			line-height: $line_max;
+		}
+	}
+
+
+// --------------------------------------------------
+// FONT SIZES
+	h1 {
+		font-size: pixels(mscale($font_max, 1));
+		font-size: mscale($font_max, 1);
+	}
+	h2 {
+		font-size: pixels($font_max);
+		font-size: $font_max;
+	}
+	h3 {
+		font-size: ( pixels($font_min) + pixels(mscale($font_min,3,true)) );
+		font-size: ( $font_min + mscale($font_min,3,true) );
+	}
+	h4 {
+		font-size: ( pixels($font_min) + pixels(mscale($font_min,6,true)) );
+		font-size: ( $font_min + mscale($font_min,6,true) );
+	}
+	h5 {
+		font-size: pixels($font_min);
+		font-size: $font_min;
+	}
+	h6 {
+		font-size: ( pixel(mscale($font_min, 2, true)) + pixels(mscale($font_min, 2, true)) );
+		font-size: mscale($font_min, 2, true) + mscale($font_min, 2, true);
+	}
+	p, ol, ul, blockquote {
+		font-size: pixels(1rem);
+		font-size: 1rem;
+	}
+
+	small { font-size: 90%; }
+
+	// RESPOND TO: reg
+	@media screen and (min-width: $vp_rg) {
+		// FONT SIZES
+		h1 {
+			font-size: pixels(mscale($font_min, 2));
+			font-size: mscale($font_min, 2);
+		}
+		h2 {
+			font-size: (pixels(mscale($font_max, 1)) + (pixels($font_min)/4));
+			font-size: (mscale($font_max, 1) + ($font_min/4));
+		}
+		h3 {
+			font-size: ( pixels(mscale($font_min, 1)) + pixels(mscale($font_min,3,true)) );
+			font-size: ( mscale($font_min, 1) + mscale($font_min,3,true) );
+		}
+		h4 {
+			font-size: ( pixels($font_min) + pixels(mscale($font_min,2,true)) );
+			font-size: ( $font_min + mscale($font_min,2,true) );
+		}
+		h5 {
+			font-size: ( pixels($font_min) + pixels(mscale($font_min,2,true)) );
+			font-size: ( $font_min + mscale($font_min,2,true) );
+		}
+		h6 {
+			font-size: pixels($font_min);
+			font-size: $font_min;
+		}
+		p, ol, ul, blockquote {
+			font-size: pixels($font_min);
+			font-size: $font_min;
+		}
+	}
+
+
+// --------------------------------------------------
+// BLOCK ELEMENTS
+
+	// lists
+	ul {
+		padding-left: pixels(mscale($body_spacer_min,1));
+		padding-left: mscale($body_spacer_min,1);
+		list-style-type: disc;
+		list-style: disc;
+		& > ul { list-style-type: circle; list-style: circle; }
+		&.menu { list-style-type: none; list-style: none; padding-left: 0px; }
+	}
+
+	// links
+	a {
+		@extend .f-body;
+		@extend .f-body-bold;
+		text-decoration: none;
+		cursor: pointer  !important;
+		pointer-events: auto !important;
+		& *:hover { cursor: pointer; }
+		@extend .link-color-primary;
+	}
+
+	// figure+caption
+	figure {
+		& figcaption {}
+	}
+
+	// blockquote 
+	blockquote {
+		padding: pixels(($body_spacer_min - rem(2))) pixels($body_spacer_max) pixels(($body_spacer_min + rem(2))) pixels($body_spacer_max);
+		padding: ($body_spacer_min - rem(2)) $body_spacer_max ($body_spacer_min + rem(2)) $body_spacer_max;
+		margin: pixels($body_spacer_min) 0;
+		margin: $body_spacer_min 0;
+		border-left: $border-default;
+		& * {
+			@extend .f-body-light-italic;
+			color: $black;
+			font-size: pixels($font_max);
+			font-size: $font_max + mscale($font_min,5,true);
+		}
+		& cite { color: $color-primary; }
+	}
+
+	// code blocks
+	pre {
+		background-color: $color-dark;
+		color: $white;
+		padding:
+			$body_spacer_min
+			mscale($body_spacer_max,2,true)
+			mscale($body_spacer_max,1,true)
+			mscale($body_spacer_max,1,true);
+		padding:
+			pixels($body_spacer_min)
+			pixels(mscale($body_spacer_max,2,true))
+			pixels(mscale($body_spacer_max,1,true))
+			pixels(mscale($body_spacer_max,1,true));
+		margin:
+			$body_spacer_min
+			0rem //mscale($body_spacer_max,3,true)
+			mscale($body_spacer_min,1,true)
+			0rem; //mscale($body_spacer_max,3,true);
+		margin:
+			pixels($body_spacer_min)
+			0px //pixels(mscale($body_spacer_max,3,true))
+			pixels(mscale($body_spacer_min,1,true))
+			0px; //pixels(mscale($body_spacer_max,3,true));
+		border-radius: $border-radius-default;
+	}

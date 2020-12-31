@@ -1,0 +1,39 @@
+
+// HEADER FONT UTILITY CLASSES
+.f-header {
+	font-family: #{$font_header};
+	font-weight: 400;
+	font-style: normal;
+}
+
+// BODY FONT UTILITY CLASSES
+.f-body {
+	font-family: #{$font_body};
+	// Light 300
+	&#{-light} {
+		font-weight: 300;
+		font-style: normal;
+		// Light 300 italic
+		&#{-italic} {
+			font-style: italic;
+		}
+	}
+	// Regular 400
+	&#{-reg} {
+		font-weight: 400;
+		font-style: normal;
+		// Light 300 italic
+		&#{-italic} {
+			font-style: italic;
+		}
+	}
+	// Black 900
+	&#{-bold} {
+		font-weight: 900;
+		font-style: normal;
+		// Light 300 italic
+		&#{-italic} {
+			font-style: italic;
+		}
+	}
+}

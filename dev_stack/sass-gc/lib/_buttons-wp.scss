@@ -1,0 +1,44 @@
+// --------------------------------------------------
+//	WORDPRESS BUTTONS
+
+// --------------------------------------------------
+// DEFAULT STYLES ON WP BUTTONS
+.wp-block-buttons {
+	& .wp-block-button {
+		& .wp-block-button__link {
+			@extend .button-base;
+			@extend .button-default;
+		}
+		&.outline, &.outlined, &.border, &.is-style-outline {
+			& .wp-block-button__link { @extend .button-default-outline; }
+		}
+	}
+}
+
+// --------------------------------------------------
+// APPLY STYLES ON WP BUTTONS
+	.wp-block-buttons {
+		& .wp-block-button {
+
+	// --------------------------------------------------
+	// COLORS & OUTLINED COLORS
+		$button-styles: [default, primary, secondary, tertiary, success, info, warning, error, disabled];
+		@each $btnStyle in $button-styles {
+			// #{$btnStyle}
+			&.#{$btnStyle} {
+				& .wp-block-button__link { @extend .button-#{$btnStyle}; }
+				&.outline, & .outlined, & .border, &.is-style-outline {
+					& .wp-block-button__link { @extend .button-#{$btnStyle}-outline; }
+				}
+			}
+		} // END loop
+
+	// --------------------------------------------------
+	// ROUNDED BUTTONS
+		&.round, &.rounded {
+			& .wp-block-button__link { @extend .button-round; }
+		}
+
+
+
+}} // END wp-block-buttons

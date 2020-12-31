@@ -1,0 +1,135 @@
+//	EXTENTION CLASSES
+// ==================================================
+
+// --------------------------------------------------
+// MARGIN & PADDING
+	// padding
+	@include padding-utility();
+
+	// margin
+	@include margin-utility();
+
+
+// --------------------------------------------------
+// BOX MODEL UTILITIES
+
+	// block
+	//@include block-sizing-utility($block_sizes_map);
+
+	// flexbox
+	//@supports (display: flex) { @include flex-box-utility(); }
+
+	// visibility utility
+	@include visibility-utility();
+	//@include responsive-visibility-utility();
+
+
+// --------------------------------------------------
+// GRID UTILITIES
+	@include responsive-grid($grid_cols);
+	.column, .col {
+		padding-left: pixels($body_spacer_max);
+		padding-left: pixels($body_spacer_max);
+		padding-right: $body_spacer_max;
+		padding-right: $body_spacer_max;
+	}
+	@include respond-to($vp_sm) {
+		.col-sm-first { padding-left: 0px; padding-left: 0rem; }
+		.col-sm-last { padding-right: 0px; padding-right: 0rem; }
+	}
+	@include respond-to($vp_md) {
+		.col-md-first { padding-left: 0px; padding-left: 0rem; }
+		.col-md-last { padding-right: 0px; padding-right: 0rem; }
+	}
+	@include respond-to($vp_lg) {
+		.col-lg-first { padding-left: 0px; padding-left: 0rem; }
+		.col-lg-last { padding-right: 0px; padding-right: 0rem; }
+	}
+
+
+// --------------------------------------------------
+// IMAGE UTILITY
+	@include image-utility();
+
+// --------------------------------------------------
+// CONTAINER EXTENSIONS
+	.container {
+		width: 100%;
+		max-width: $vp_xl;
+		float: unset;
+		margin-left: auto !important;
+		margin-right: auto !important;
+		&#{-fluid} {
+			max-width: 100% !important;
+			width: 100% !important;
+		}
+		&#{-full-width} {
+			max-width: 100vw !important;
+			width: 100vw !important;
+		}
+		&#{-full-screen} {
+			max-width: 100vw !important;
+			max-height: 100vh !important;
+			width: 100vw !important;
+			height: 100vh !important;
+		}
+	}
+	.fill-width {
+		max-width: 100% !important;
+		width: 100% !important;
+	}
+	.full-bleed {
+		width: 100vw !important;
+		margin-left: calc(50% - 50vw) !important;
+	}
+	@media screen and (min-width: $vp_xxxl) {
+		.container {
+			max-width: $vp_xxl;
+		}
+	}
+	@media screen and (min-width: $vp_max) {
+		.container {
+			max-width: $vp_xxxl;
+		}
+	}
+
+
+
+
+// --------------------------------------------------
+// NAVIGATION LINKS
+	.link-inverted {
+		color: $color-white;
+		& a {
+			color: $color-white;
+			text-decoration: none;
+		}
+	}
+	.link-color-primary, {
+		color: $color-primary;
+		&:hover {
+			color: darken($color-primary, 10%);
+		}
+		&:focus {
+			color: darken($color-primary, 15%);
+		}
+		&:visited {
+			color: $color-primary;
+		}
+	}
+	.link-color-secondary {
+		color: $color-secondary;
+		&:hover {
+			color: darken($color-secondary, 10%);
+		}
+		&:focus {
+			color: darken($color-secondary, 15%);
+		}
+		&:visited {
+			color: $color-secondary;
+		}
+	}
+
+
+// --------------------------------------------------
+// 

@@ -14,8 +14,7 @@ module.exports = function(grunt) {
 	// -------------------------
 		pkg: grunt.file.readJSON('package.json'),
 		timestamp: grunt.template.today('yyyy-mm-dd_HH'),
-		paths: grunt.file.readJSON('paths.json'),
-		secret: grunt.file.readJSON('secret.json'),
+		config: grunt.file.readJSON('build.json'),
 
 	// -------------------------
 	// DEVELOPMENT TASKS
@@ -26,8 +25,8 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						flatten: true,
-						src: ['<%= paths.local.dev_stack %>/css/styles.min.css'],
-						dest: '<%= paths.local.dist_stack %>/css/',
+						src: ['<%= config.dev_stack %>/css/styles.min.css'],
+						dest: '<%= config.dist_stack %>/css/',
 						filter: 'isFile'
 					},
 				]
@@ -37,8 +36,8 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						flatten: true,
-						src: ['<%= paths.local.dev_stack %>/js/compiled/scripts.min.js'],
-						dest: '<%= paths.local.dist_stack %>/js/',
+						src: ['<%= config.dev_stack %>/js/compiled/scripts.min.js'],
+						dest: '<%= config.dist_stack %>/js/',
 						filter: 'isFile'
 					}
 				]
@@ -55,9 +54,9 @@ module.exports = function(grunt) {
 				},
 				files: [{
 					expand: true,
-					cwd: '<%= paths.local.dev_stack %>/sass/',
+					cwd: '<%= config.dev_stack %>/sass-gc/',
 					src: ['*.scss'],
-					dest: '<%= paths.local.dev_stack %>/css/',
+					dest: '<%= config.dev_stack %>/css/',
 					ext: '.dev.css'
 				}]
 			}
@@ -72,8 +71,8 @@ module.exports = function(grunt) {
 				],
 			},
 			dist: {
-				src: '<%= paths.local.dev_stack %>/css/*.dev.css',
-				dest: '<%= paths.local.dev_stack %>/css/styles.prefixed.css'
+				src: '<%= config.dev_stack %>/css/*.dev.css',
+				dest: '<%= config.dev_stack %>/css/styles.prefixed.css'
 			}
 		},
 
@@ -86,9 +85,9 @@ module.exports = function(grunt) {
 			target: {
 				files: [{
 					expand: true,
-					cwd: '<%= paths.local.dev_stack %>/css/',
+					cwd: '<%= config.dev_stack %>/css/',
 					src: 'styles.prefixed.css',
-					dest: '<%= paths.local.dev_stack %>/css/',
+					dest: '<%= config.dev_stack %>/css/',
 					ext: '.min.css'
 				}]
 			}
@@ -98,7 +97,7 @@ module.exports = function(grunt) {
 		jshint: {
 			files: [
 				'gruntfile.js',
-				'<%= paths.local.dev_stack %>/js/src/*.js'
+				'<%= config.dev_stack %>/js/src/*.js'
 			],
 			options: {
 				esversion: 6,
@@ -116,10 +115,10 @@ module.exports = function(grunt) {
 			},
 			dist: {
 				src: [
-					'<%= paths.local.dev_stack %>/js/vendors/*.js',
-					'<%= paths.local.dev_stack %>/js/src/*.js'
+					'<%= config.dev_stack %>/js/vendors/*.js',
+					'<%= config.dev_stack %>/js/src/*.js'
 				],
-				dest: '<%= paths.local.dev_stack %>/js/concatenated/scripts.concat.js'
+				dest: '<%= config.dev_stack %>/js/concatenated/scripts.concat.js'
 			}
 		},
 
@@ -130,9 +129,9 @@ module.exports = function(grunt) {
 			},
 			build : {
 				src : [
-					'<%= paths.local.dev_stack %>/js/concatenated/scripts.concat.js'
+					'<%= config.dev_stack %>/js/concatenated/scripts.concat.js'
 				],
-				dest: '<%= paths.local.dev_stack %>/js/compiled/scripts.min.js'
+				dest: '<%= config.dev_stack %>/js/compiled/scripts.min.js'
 
 			}
 		},
@@ -140,13 +139,13 @@ module.exports = function(grunt) {
 		// watcher
 		watch: {
 			css: {
-				files: ['<%= paths.local.dev_stack %>/sass/**/*.scss'],
+				files: ['<%= config.dev_stack %>/sass-gc/**/*.scss'],
 				tasks: ['sass', 'postcss', 'cssmin', 'copy']
 			},
 			js: {
 				files: [
-					'<%= paths.local.dev_stack %>/js/src/*.js',
-					'<%= paths.local.dev_stack %>/js/vendors/*.js',
+					'<%= config.dev_stack %>/js/src/*.js',
+					'<%= config.dev_stack %>/js/vendors/*.js',
 				],
 				tasks: ['jshint', 'concat', 'uglify', 'copy']
 			},
@@ -164,59 +163,59 @@ module.exports = function(grunt) {
 
 			// DB-MIGRATE
 			dump_staging_db: {
-				options: { host: '<%= secret.staging.host %>', username: '<%= secret.staging.username %>', password: '<%= secret.staging.password %>' },
+				options: { host: '<%= config.staging.host %>', username: '<%= config.staging.ssh_user %>', password: '<%= config.staging.ssh_pass %>' },
 				command: [
-					'cd <%= secret.staging.dump_path %>',
-					'mysqldump --host=<%= secret.staging.dbhost %> <%= secret.staging.dbname %> --user=<%= secret.staging.dbuser %> --password=<%= secret.staging.dbpass %> --max_allowed_packet=16M > <%= timestamp %>-staging.sql --force',
+					'cd <%= config.staging.dump_path %>',
+					'mysqldump --host=<%= config.staging.db_host %> <%= config.staging.db_name %> --user=<%= config.staging.db_user %> --password=<%= config.staging.db_password %> --max_allowed_packet=16M > <%= timestamp %>-staging.sql --force',
 				].join(' && ')
 			},
 			dump_production_db: {
-				options: { host: '<%= secret.production.host %>', username: '<%= secret.production.username %>', password: '<%= secret.production.password %>' },
+				options: { host: '<%= config.production.host %>', username: '<%= config.production.ssh_user %>', password: '<%= config.production.ssh_pass %>' },
 				command: [
-					'cd <%= secret.production.dump_path %>',
-					'mysqldump --host=<%= secret.production.dbhost %> <%= secret.production.dbname %> --user=<%= secret.production.dbuser %> --password=<%= secret.production.dbpass %> --max_allowed_packet=16M > <%= timestamp %>-production.sql --force',
+					'cd <%= config.production.dump_path %>',
+					'mysqldump --host=<%= config.production.db_host %> <%= config.production.db_name %> --user=<%= config.production.db_user %> --password=<%= config.production.db_password %> --max_allowed_packet=16M > <%= timestamp %>-production.sql --force',
 				].join(' && ')
 			},
 			import_staging_migrated_local_dump: {
-				options: { host: '<%= secret.staging.host %>', username: '<%= secret.staging.username %>', password: '<%= secret.staging.password %>' },
+				options: { host: '<%= config.staging.host %>', username: '<%= config.staging.ssh_user %>', password: '<%= config.staging.ssh_pass %>' },
 				command: [
-					'cd <%= secret.staging.dump_path %>',
-					'mysql --host=<%= secret.staging.dbhost %> <%= secret.staging.dbname %> --user=<%= secret.staging.dbuser %> --password=<%= secret.staging.dbpass %> --max_allowed_packet=100M < <%= timestamp %>-local_migrated.sql --force'
+					'cd <%= config.staging.dump_path %>',
+					'mysql --host=<%= config.staging.db_host %> <%= config.staging.db_name %> --user=<%= config.staging.db_user %> --password=<%= config.staging.db_password %> --max_allowed_packet=100M < <%= timestamp %>-local_migrated.sql --force'
 				].join(' && ')
 			},
 			import_production_migrated_local_dump: {
-				options: { host: '<%= secret.production.host %>', username: '<%= secret.production.username %>', password: '<%= secret.production.password %>' },
+				options: { host: '<%= config.production.host %>', username: '<%= config.production.ssh_user %>', password: '<%= config.production.ssh_pass %>' },
 				command: [
-					'cd <%= secret.production.dump_path %>',
-					'mysql --host=<%= secret.production.dbhost %> <%= secret.production.dbname %> --user=<%= secret.production.dbuser %> --password=<%= secret.production.dbpass %> --max_allowed_packet=100M < <%= timestamp %>-local_migrated.sql --force'
+					'cd <%= config.production.dump_path %>',
+					'mysql --host=<%= config.production.db_host %> <%= config.production.db_name %> --user=<%= config.production.db_user %> --password=<%= config.production.db_password %> --max_allowed_packet=100M < <%= timestamp %>-local_migrated.sql --force'
 				].join(' && ')
 			},
 			// FILE-CLEANUP
 			cleanup_staging: {
-				options: { host: '<%= secret.staging.host %>', username: '<%= secret.staging.username %>', password: '<%= secret.staging.password %>' },
+				options: { host: '<%= config.staging.host %>', username: '<%= config.staging.ssh_user %>', password: '<%= config.staging.ssh_pass %>' },
 				command: [
-					'cd <%= secret.staging.dump_path %>',
+					'cd <%= config.staging.dump_path %>',
 					'rm <%= timestamp %>-local_migrated.sql'
 				].join(' && ')
 			},
 			cleanup_staging_dump: {
-				options: { host: '<%= secret.staging.host %>', username: '<%= secret.staging.username %>', password: '<%= secret.staging.password %>' },
+				options: { host: '<%= config.staging.host %>', username: '<%= config.staging.ssh_user %>', password: '<%= config.staging.ssh_pass %>' },
 				command: [
-					'cd <%= secret.staging.dump_path %>',
+					'cd <%= config.staging.dump_path %>',
 					'rm <%= timestamp %>-staging.sql'
 				].join(' && ')
 			},
 			cleanup_production: {
-				options: { host: '<%= secret.production.host %>', username: '<%= secret.production.username %>', password: '<%= secret.production.password %>' },
+				options: { host: '<%= config.production.host %>', username: '<%= config.production.ssh_user %>', password: '<%= config.production.ssh_pass %>' },
 				command: [
-					'cd <%= secret.production.dump_path %>',
+					'cd <%= config.production.dump_path %>',
 					'rm <%= timestamp %>-local_migrated.sql'
 				].join(' && ')
 			},
 			cleanup_production_dump: {
-				options: { host: '<%= secret.production.host %>', username: '<%= secret.production.username %>', password: '<%= secret.production.password %>' },
+				options: { host: '<%= config.production.host %>', username: '<%= config.production.ssh_user %>', password: '<%= config.production.ssh_pass %>' },
 				command: [
-					'cd <%= secret.production.dump_path %>',
+					'cd <%= config.production.dump_path %>',
 					'rm <%= timestamp %>-production.sql'
 				].join(' && ')
 			}
@@ -227,75 +226,75 @@ module.exports = function(grunt) {
 			// BACKUP
 			backup_local_site: {
 				command: [
-					'mkdir <%= paths.local.dump_dir %>/FILES/<%= timestamp %>_local_content',
-					'rsync -avr <%= paths.local.site_root %>/ <%= paths.local.dump_dir %>/FILES/<%= timestamp %>_local_content'
+					'mkdir <%= config.local.backups %>/FILES/<%= timestamp %>_local_content',
+					'rsync -avr <%= config.local.site_dir %>/ <%= config.local.backups %>/FILES/<%= timestamp %>_local_content'
 				].join(' && ')
 			},
 			backup_staging_site: {
 				command: [
-					'mkdir <%= paths.local.dump_dir %>/FILES/<%= timestamp %>_staging_content',
-					'rsync -avr <%= secret.staging.username %>@<%= secret.staging.host %>:<%= secret.staging.site_root %>/ <%= paths.local.dump_dir %>/FILES/<%= timestamp %>_staging_content'
+					'mkdir <%= config.local.backups %>/FILES/<%= timestamp %>_staging_content',
+					'rsync -avr <%= config.staging.ssh_user %>@<%= config.staging.host %>:<%= config.staging.site_dir %>/ <%= config.local.backups %>/FILES/<%= timestamp %>_staging_content'
 				].join(' && ')
 			},
 			backup_production_site: {
 				command: [
-					'mkdir <%= paths.local.dump_dir %>/FILES/<%= timestamp %>_production_content',
-					'rsync -avr <%= secret.production.username %>@<%= secret.production.host %>:<%= secret.production.site_root %>/ <%= paths.local.dump_dir %>/FILES/<%= timestamp %>_production_content'
+					'mkdir <%= config.local.backups %>/FILES/<%= timestamp %>_production_content',
+					'rsync -avr <%= config.production.ssh_user %>@<%= config.production.host %>:<%= config.production.site_dir %>/ <%= config.local.backups %>/FILES/<%= timestamp %>_production_content'
 				].join(' && ')
 			},
 			// DB-MIGRATE
 			wget_staging_dump: {
-				command: 'wget -nv <%= paths.staging.dump_url %>/<%= timestamp %>-staging.sql --directory-prefix=<%= paths.local.dump_dir %>/SQL'
+				command: 'wget -nv <%= config.staging.access %><%= config.staging.host %>/dumps/<%= timestamp %>-staging.sql --directory-prefix=<%= config.local.backups %>/SQL'
 			},
 			wget_production_dump: {
-				command: 'wget -nv <%= paths.production.dump_url %>/<%= timestamp %>-production.sql --directory-prefix=<%= paths.local.dump_dir %>/SQL'
+				command: 'wget -nv <%= config.production.access %><%= config.production.host %>/dumps/<%= timestamp %>-production.sql --directory-prefix=<%= config.local.backups %>/SQL'
 			},
 			import_migrated_staging_dump: {
-				command: '<%= paths.local.mamp %>/mysql -uroot -proot --host=<%= secret.local.dbhost %> <%= secret.local.dbname %> --max_allowed_packet=1000M < <%= paths.local.dump_dir %>/SQL/<%= timestamp %>-staging_migrated.sql --force'
+				command: '<%= config.local.mamp %>/mysql -uroot -proot --host=<%= config.local.db_host %> <%= config.local.db_name %> --max_allowed_packet=1000M < <%= config.local.backups %>/SQL/<%= timestamp %>-staging_migrated.sql --force'
 			},
 			import_migrated_production_dump: {
-				command: '<%= paths.local.mamp %>/mysql --host=<%= secret.local.dbhost %> <%= secret.local.dbname %> --user=<%= secret.local.dbuser %> --password=<%= secret.local.dbpass %> --max_allowed_packet=1000M < <%= paths.local.dump_dir %>/SQL/<%= timestamp %>-production_migrated.sql --force'
+				command: '<%= config.local.mamp %>/mysql --host=<%= config.local.db_host %> <%= config.local.db_name %> --user=<%= config.local.db_user %> --password=<%= config.local.db_password %> --max_allowed_packet=1000M < <%= config.local.backups %>/SQL/<%= timestamp %>-production_migrated.sql --force'
 			},
 			cleanup_local: {
-				command: 'rm -rf <%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local_migrated.sql'
+				command: 'rm -rf <%= config.local.backups %>/SQL/<%= timestamp %>-local_migrated.sql'
 			},
 			cleanup_local_from_staging: {
-				command: 'rm -rf <%= paths.local.dump_dir %>/sql/<%= timestamp %>-staging.sql <%= paths.local.dump_dir %>/sql/<%= timestamp %>-staging_migrated.sql'
+				command: 'rm -rf <%= config.local.backups %>/sql/<%= timestamp %>-staging.sql <%= config.local.backups %>/sql/<%= timestamp %>-staging_migrated.sql'
 			},
 			cleanup_local_from_production: {
-				command: 'rm -rf <%= paths.local.dump_dir %>/sql/<%= timestamp %>-production:.sql <%= paths.local.dump_dir %>/sql/<%= timestamp %>-production_migrated.sql'
+				command: 'rm -rf <%= config.local.backups %>/sql/<%= timestamp %>-production:.sql <%= config.local.backups %>/sql/<%= timestamp %>-production_migrated.sql'
 			},
 			dump_local_db: {
-				command: '<%= paths.local.mamp %>/mysqldump --opt --host=<%= secret.local.dbhost %> -u<%= secret.local.dbuser %> -p<%= secret.local.dbpass %> <%= secret.local.dbname %> --max_allowed_packet=16M > <%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local.sql --force'
+				command: '<%= config.local.mamp %>/mysqldump --opt --host=<%= config.local.db_host %> -u<%= config.local.db_user %> -p<%= config.local.db_password %> <%= config.local.db_name %> --max_allowed_packet=16M > <%= config.local.backups %>/SQL/<%= timestamp %>-local.sql --force'
 			},
 			upload_local_dump_to_staging: {
-				command: 'scp <%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local_migrated.sql <%= secret.staging.username %>@<%= secret.staging.host %>:<%= secret.staging.dump_path %>'
+				command: 'scp <%= config.local.backups %>/SQL/<%= timestamp %>-local_migrated.sql <%= config.staging.ssh_user %>@<%= config.staging.host %>:<%= config.staging.dump_path %>'
 			},
 			upload_local_dump_to_production: {
-				command: 'scp <%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local_migrated.sql <%= secret.production.username %>@<%= secret.production.host %>:<%= secret.production.dump_path %>'
+				command: 'scp <%= config.local.backups %>/SQL/<%= timestamp %>-local_migrated.sql <%= config.production.ssh_user %>@<%= config.production.host %>:<%= config.production.dump_path %>'
 			},
 			// 
 			fix_serialized_dump_local: {
-				command: 'php -f <%= paths.local.dump_dir %>/fix-serialization.php SQL/<%= timestamp %>-local_migrated.sql'
+				command: 'php -f <%= config.local.backups %>/fix-serialization.php SQL/<%= timestamp %>-local_migrated.sql'
 			},
 			fix_serialized_dump_staging: {
-				command: 'php -f <%= paths.local.dump_dir %>/fix-serialization.php SQL/<%= timestamp %>-staging_migrated.sql'
+				command: 'php -f <%= config.local.backups %>/fix-serialization.php SQL/<%= timestamp %>-staging_migrated.sql'
 			},
 			fix_serialized_dump_production: {
-				command: 'php -f <%= paths.local.dump_dir %>/fix-serialization.php SQL/<%= timestamp %>-production_migrated.sql'
+				command: 'php -f <%= config.local.backups %>/fix-serialization.php SQL/<%= timestamp %>-production_migrated.sql'
 			},
 			// FILE-SYNC
 			push_local_sync_staging: {
-				command: 'rsync -avr <%= paths.local.site_root %>/ <%= secret.staging.username %>@<%= secret.staging.host %>:<%= secret.staging.site_root %>'
+				command: 'rsync -avr <%= config.local.site_dir %>/ <%= config.staging.ssh_user %>@<%= config.staging.host %>:<%= config.staging.site_dir %>'
 			},
 			push_local_sync_production: {
-				command: 'rsync -avr <%= paths.local.site_root %>/ <%= secret.production.username %>@<%= secret.production.host %>:<%= secret.production.site_root %>'
+				command: 'rsync -avr <%= config.local.site_dir %>/ <%= config.production.ssh_user %>@<%= config.production.host %>:<%= config.production.site_dir %>'
 			},
 			pull_staging_sync_local: {
-				command: 'rsync -auvr <%= secret.staging.username %>@<%= secret.staging.host %>:<%= secret.staging.site_root %>/ <%= paths.local.site_root %>'
+				command: 'rsync -auvr <%= config.staging.ssh_user %>@<%= config.staging.host %>:<%= config.staging.site_dir %>/ <%= config.local.site_dir %>'
 			},
 			pull_production_sync_local: {
-				command: 'rsync -avr <%= secret.production.username %>@<%= secret.production.host %>:<%= secret.production.site_root %>/ <%= paths.local.site_root %>'
+				command: 'rsync -avr <%= config.production.ssh_user %>@<%= config.production.host %>:<%= config.production.site_dir %>/ <%= config.local.site_dir %>'
 			}
 		},
 		// clean SQL data
@@ -304,46 +303,46 @@ module.exports = function(grunt) {
 				options: {
 					force: true
 				},
-				src:  '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local.sql',
-				dest: '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local_migrated.sql',
-				from: '<%= paths.local.site_url %>',
-				to:   '<%= paths.local.site_url %>'
+				src:  '<%= config.local.backups %>/SQL/<%= timestamp %>-local.sql',
+				dest: '<%= config.local.backups %>/SQL/<%= timestamp %>-local_migrated.sql',
+				from: '<%= config.local.access %><%= config.local.host %>:<%= config.local.port %>/',
+				to:   '<%= config.local.access %><%= config.local.host %>:<%= config.local.port %>/',
 			},
 			search_replace_local_dump_to_staging: {
 				options: {
 					force: true
 				},
-				src:  '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local.sql',
-				dest: '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local_migrated.sql',
-				from: '<%= paths.local.site_url %>',
-				to:   '<%= paths.staging.site_url %>'
+				src:  '<%= config.local.backups %>/SQL/<%= timestamp %>-local.sql',
+				dest: '<%= config.local.backups %>/SQL/<%= timestamp %>-local_migrated.sql',
+				from: '<%= config.local.access %><%= config.local.host %>:<%= config.local.port %>/',
+				to:   '<%= config.staging.access %><%= config.staging.host %>/',
 			},
 			search_replace_local_dump_to_production: {
 				options: {
 					force: true
 				},
-				src:  '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local.sql',
-				dest: '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-local_migrated.sql',
-				from: '<%= paths.local.site_url %>',
-				to:   '<%= paths.production.site_url %>'
+				src:  '<%= config.local.backups %>/SQL/<%= timestamp %>-local.sql',
+				dest: '<%= config.local.backups %>/SQL/<%= timestamp %>-local_migrated.sql',
+				from: '<%= config.local.access %><%= config.local.host %>:<%= config.local.port %>/',
+				to:   '<%= config.production.access %><%= config.production.host %>/',
 			},
 			search_replace_staging_dump_to_local: {
 				options: {
 					force: true
 				},
-				src:  '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-staging.sql',
-				dest: '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-staging_migrated.sql',
-				from: '<%= paths.staging.site_url %>',
-				to:   '<%= paths.local.site_url %>'
+				src:  '<%= config.local.backups %>/SQL/<%= timestamp %>-staging.sql',
+				dest: '<%= config.local.backups %>/SQL/<%= timestamp %>-staging_migrated.sql',
+				from: '<%= config.staging.access %><%= config.staging.host %>/',
+				to:   '<%= config.local.access %><%= config.local.host %>:<%= config.local.port %>/',
 			},
 			search_replace_production_dump_to_local: {
 				options: {
 					force: true
 				},
-				src:  '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-production.sql',
-				dest: '<%= paths.local.dump_dir %>/SQL/<%= timestamp %>-production_migrated.sql',
-				from: '<%= paths.production.site_url %>',
-				to:   '<%= paths.local.site_url %>'
+				src:  '<%= config.local.backups %>/SQL/<%= timestamp %>-production.sql',
+				dest: '<%= config.local.backups %>/SQL/<%= timestamp %>-production_migrated.sql',
+				from: '<%= config.production.access %><%= config.production.host %>/',
+				to:   '<%= config.local.access %><%= config.local.host %>:<%= config.local.port %>/',
 			}
 		}
 	});

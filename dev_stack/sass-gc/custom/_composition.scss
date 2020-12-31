@@ -1,0 +1,115 @@
+//	COMPOSITION STYLES
+//	Cube method => @AndyBell - https://piccalil.li/blog/cube-css/
+// ==================================================
+
+// --------------------------------------------------
+// BASE
+	html { overflow: none; }
+	html, body {
+		margin: 0;
+		padding: 0;
+		width: 100vw;
+		width: 100%;
+		//height: 100%;
+		overflow-x: hidden;
+		overflow-y: auto;
+		@include border-box();
+		//@include scroll-hide();
+		& * { @include border-box(); }
+	}
+
+
+// --------------------------------------------------
+// GLOBAL
+	.post, .page { margin: 0; }
+	#page-breadcrumbs { display: none; }
+
+	.content-wrapper {
+		@extend .col-1-1;
+		margin: auto;
+		@include clearfix();
+	}
+	#page-header {
+		@extend .col-1-1;
+	}
+	#primary,
+	#secondary { float: left; }
+	#primary {
+		@extend .col-1-1;
+		@extend .col-md-4-6;
+	}
+	#secondary {
+		@extend .col-1-1;
+		@extend .col-md-2-6;
+		padding: $body_spacer_max mscale($body_spacer_min,1,true) $body_spacer_min mscale($body_spacer_min,1,true);
+		border-top: $border-light;
+	}
+	// MEDIUM
+	@media screen and (min-width:$vp_md) {
+		#secondary {
+			border-top: none;
+			padding: $body_spacer_min;
+		}
+	}
+	// XL
+	@media screen and (min-width:$vp_xxl) {
+		.content-wrapper {
+			max-width: $vp_xl;
+		}
+	}
+
+
+// --------------------------------------------------
+// HOME PAGE
+	body.home {}
+
+
+// --------------------------------------------------
+// ARCHIVE + SEARCH
+	body.archive,
+	body.search {}
+
+
+// --------------------------------------------------
+// PAGE
+	body.page {}
+
+
+// --------------------------------------------------
+// POST (single)
+	body.single {}
+
+
+// --------------------------------------------------
+// 404 PAGE NOT FOUND
+	body.error404 {}
+
+
+// --------------------------------------------------
+// ENTRY CONTENT FORMATTING
+	.entry-header,
+	.entry-content,
+	.entry-summary,
+	.entry-footer {
+		& > h1, & > h2, & > h3, & > h4, & > h5, & > h6, & > p,
+		& > ul, & > ol, & > blockquote, & > figure, & > pre, & > code {
+			@extend .margin-h-sm;
+		}
+		& > div {
+			@extend .margin-h-sm;
+			&.wp-block-cover,
+			&.container-full-screen,
+			&.container-full-width { margin-left: 0px; margin-right: 0px; }
+		}
+		& > script {}
+	}
+	.entry-title { @extend .margin-h-sm; }
+	.entry-content {
+		// padd all elements with a proceeding element
+		/*
+		& * + *  {
+			margin-top: pixels(mscale($body_spacer_min, 1, true));
+			margin-top: mscale($body_spacer_min, 1, true);
+		}
+		*/
+	}

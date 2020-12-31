@@ -1,18 +1,38 @@
-*.css.map
-*.sass.map
-*.htaccess
-*.DS_Store
-.DS_Store
+# ignore package lock
 package-lock.json
 
+# ignore all notes
+_notes/
+_LICENSE.txt
 _PVT.txt
 _wp-config-db-EX.txt
 
-.sass-cache/
+# ignore everything in the root except the "wp-content" directory.
+!httpublic/wp-content/
+
+# ignore everything in the "wp-content" directory, except:
+# "mu-plugins", "plugins", "themes" directory
+httpublic/wp-content/*
+!httpublic/wp-content/mu-plugins/
+!httpublic/wp-content/plugins/
+!httpublic/wp-content/themes/
+
+# ignore specific themes
+wp-content/themes/twenty*/
+
+# ignore node dependency directories
 node_modules/
-bower_components/
 
-backups/FILES/*
-backups/SQL/*
+# ignore htaccess and mac thumbs
+*.htaccess
+*.DS_Store
 
-htpublic/*
+# ignore sass made files
+.sass-cache*
+*.css.map
+*.sass.map
+
+# ignore log files and databases
+*.log
+*.sql
+*.sqlite

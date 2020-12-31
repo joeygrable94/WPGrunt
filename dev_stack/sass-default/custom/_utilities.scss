@@ -3,132 +3,173 @@
 // ==================================================
 
 
-
-
-
-// FLEXBOX UTILITY
-//@supports (display: flex) { @include flex-box-utility(); }
-
-
-
-
-
-// IMAGE UTILITY
-@include image-utility();
-
-
-
-
-
-// BLOCK SIZING UTILITY
-//@include block-sizing-utility($block_sizes_map);
-
-
-
-
-
-// VISIBILITY UTILITY
-@include visibility-utility();
-//@include responsive-visibility-utility();
-
-
-
-
-
+// --------------------------------------------------
 // TYPOGRAPHY
-// baseline grid
-//@include baseline(10px);
-
-// size
-.font-1_5x { font-size: 150% !important; }
-.font-2x { font-size: 200% !important; }
-.font-3x { font-size: 300% !important; }
-.font-4x { font-size: 400% !important; }
-.font-5x { font-size: 500% !important; }
-.font-6x { font-size: 600% !important; }
-.font-7x { font-size: 700% !important; }
-.font-8x { font-size: 800% !important; }
-.font-9x { font-size: 900% !important; }
-.font-10x { font-size: 1000% !important; }
-// case
-.font-small-cap {
-	font-weight: 700;
-	text-transform: uppercase;
-	font-variant: small-caps;
-	letter-spacing: 0.1rem;
-	padding-top: ($body_spacer_min / $mscale) !important;
-	padding-bottom: ($body_spacer_min) !important;
-}
-.font-oldstyle-nums {
-	font-variant-numeric: oldstyle-nums;
-}
-// alignment
-.text-center { text-align: center; }
-.text-left { text-align: left; }
-.text-right { text-align: right; }
-// lists
-.list-none {
-	list-style-type: none;
-	list-style: none;
-	padding-left: 0rem;
-	margin: 0rem;
-}
-.list-bullet {
-	list-style-type: bullet;
-	list-style: bullet;
-}
-.break::before {
-	content: "\A";
-}
+	// baseline grid
+	@include baseline(15px);
 
 
+// --------------------------------------------------
+// LIST STATES
+	.list-none {
+		list-style-type: none;
+		list-style: none;
+		padding-left: 0rem;
+		margin: 0rem;
+	}
+	.list-bullet {
+		list-style-type: bullet;
+		list-style: bullet;
+	}
+	.break::before {
+		content: "\A";
+	}
 
 
-
+// --------------------------------------------------
 // ARROW UTILITIES
-.arrow {
-	display: inline-block;
-	width: 15px;
-	height: 15px;
-	border-top-style: solid;
-	border-top-width: 2px;
-	border-top-color: black;
-	border-right-style: solid;
-	border-right-width: 2px;
-	border-right-color: black;
-}
-.arrow-top {			transform: rotate(-45deg);			}
-.arrow-right {			transform: rotate(45deg);			}
-.arrow-bottom {			transform: rotate(135deg);			}
-.arrow-left {			transform: rotate(-135deg);			}
-.arrow-top-narrow {		transform: rotate(-45deg) skew(-15deg, -15deg);		}
-.arrow-top-wide {		transform: rotate(-45deg) skew(7deg, 7deg);			}
-.arrow-top-left {		transform: rotate(-90deg) skew(-10deg, -10deg);		}
-.arrow-top-right {		transform: rotate(0) skew(-10deg, -10deg);			}
-.arrow-bottom-left {	transform: rotate(180deg) skew(-10deg, -10deg);		}
-.arrow-bottom-right {	transform: rotate(90deg) skew(-10deg, -10deg);		}
+	.arrow {
+		display: inline-block;
+		width: 15px;
+		height: 15px;
+		border-top-style: solid;
+		border-top-width: 2px;
+		border-top-color: black;
+		border-right-style: solid;
+		border-right-width: 2px;
+		border-right-color: black;
+	}
+	.arrow-top {			transform: rotate(-45deg);			}
+	.arrow-right {			transform: rotate(45deg);			}
+	.arrow-bottom {			transform: rotate(135deg);			}
+	.arrow-left {			transform: rotate(-135deg);			}
+	.arrow-top-narrow {		transform: rotate(-45deg) skew(-15deg, -15deg);		}
+	.arrow-top-wide {		transform: rotate(-45deg) skew(7deg, 7deg);			}
+	.arrow-top-left {		transform: rotate(-90deg) skew(-10deg, -10deg);		}
+	.arrow-top-right {		transform: rotate(0) skew(-10deg, -10deg);			}
+	.arrow-bottom-left {	transform: rotate(180deg) skew(-10deg, -10deg);		}
+	.arrow-bottom-right {	transform: rotate(90deg) skew(-10deg, -10deg);		}
 
 
+// --------------------------------------------------
+// HIDE/SHOW HEIGHT
+	.height-invisible {
+		max-height: 0px !important;
+		transition: $transition-fast;
+	}
+	.height-visible {
+		max-height: none !important;
+		transition: $transition-fast;
+	}
 
 
+// --------------------------------------------------
+// HERO CALLOUTS
+	.hero-base, .callout {
+		position: relative;
+		padding: pixels(mscale($body_spacer_min, 2)) 0 pixels(mscale($body_spacer_min, 2)) 0;
+		padding: mscale($body_spacer_min, 2) 0 mscale($body_spacer_min, 2) 0;
+		border: none;
+		border-radius: 0;
+		box-shadow: none;
+		& h1, & h2, & h3, & h4, & h5, & h6, & p {
+			@extend .f-header;
+		}
+		max-width: 100% !important;
+		& > * {
+			@extend .container;
+			float: none !important;
+		}
+	}
+	.hero, .callout {
+		&#{-dark} {
+			@extend .hero-base;
+			background-color: $color-dark;
+			& div,
+			& h1, & h2, & h3, & h4, & h5, & h6, & p {
+				color: $color-primary;
+			}
+		}
+		&#{-gcc} {
+			@extend .hero-base;
+			background-color: $color-primary;
+			& div,
+			& h1, & h2, & h3, & h4, & h5, & h6, & p {
+				color: $color-white;
+			}
+		}
+		&#{-gcm} {
+			@extend .hero-base;
+			background-color: $color-secondary;
+			& div,
+			& h1, & h2, & h3, & h4, & h5, & h6, & p {
+				color: $color-white;
+			}
+		}
+		&#{-center} {
+			text-align: center;
+			& div,
+			& h1, & h2, & h3, & h4, & h5, & h6, & p {
+				text-align: center;
+			}
+		}
+	}
 
-// Show Full Height onclick module
-.height-visible {
-	max-height: none !important;
-	transition: $transition;
-}
+
+// --------------------------------------------------
+// SOCIAL ICONS LIST
+	.list-social {
+		list-style: none;
+		list-style-type: none;
+		& li a {
+			color: $color-secondary;
+		}
+		& .ls-ig::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/instagram-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+		& .ls-gp::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/google-plus-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+		& .ls-pn::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/pinterest-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+		& .ls-tw::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/twitter-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+		& .ls-fb::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/facebook-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+		& .ls-li::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/linkedin-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+		& .ls-yt::before {
+			content: ''; display: inline-block; position: relative;
+			background: url("https://assets.src.pub/social-media-icons/youtube-ico.png");
+			background-color: transparent; background-repeat: no-repeat; background-size: cover;
+			top: 8px; left: -16px; width: 24px; height: 24px;
+		}
+	}
 
 
-
-
-
-// MARGIN & PADDING
-// PADDING
-@include padding-utility();
-
-// MARGIN
-@include margin-utility();
-
-
+// --------------------------------------------------
+// 
 
 

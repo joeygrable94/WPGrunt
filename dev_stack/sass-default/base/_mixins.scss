@@ -3,9 +3,7 @@
 
 // border-box hack
 @mixin border-box() {
-	-webkit-box-sizing: border-box;
-		 -moz-box-sizing: border-box;
-			box-sizing: border-box;
+	box-sizing: border-box !important;
 }
 
 // hide scrollbar
@@ -27,9 +25,12 @@
 	scrollbar-width: $size;
 	&::-webkit-scrollbar-thumb {
 		background-color: $color;
+		border-radius: pixels($size);
 		border-radius: $size;
 	}
 	&::-webkit-scrollbar {
+		width: pixels($size);
+		height: pixels($size);
 		width: $size;
 		height: $size;
 	}
@@ -246,104 +247,122 @@
 // PADDING UTILITY
 @mixin padding-utility() {
 	.padding {
-		padding: pixels($body_spacer_min) !important;
-		padding: $body_spacer_min !important;
+		padding: pixels($body_spacer_min);
+		padding: $body_spacer_min;
 	}
 	.padding-h, .padding-horizontal {
-		padding-left: pixels($body_spacer_min) !important;
-		padding-left: $body_spacer_min !important;
-		padding-right: pixels($body_spacer_min) !important;
-		padding-right: $body_spacer_min !important;
+		padding-left: pixels($body_spacer_min);
+		padding-left: $body_spacer_min;
+		padding-right: pixels($body_spacer_min);
+		padding-right: $body_spacer_min;
 	}
 	.padding-h-sm, .padding-horizontal-small {
-		padding-left: pixels( mscale($body_spacer_min, 1, true) ) !important;
-		padding-left: mscale($body_spacer_min, 1, true) !important;
-		padding-right: pixels( mscale($body_spacer_min, 1, true) ) !important;
-		padding-right: mscale($body_spacer_min, 1, true) !important;
+		padding-left: pixels( mscale($body_spacer_min, 1, true) );
+		padding-left: mscale($body_spacer_min, 1, true);
+		padding-right: pixels( mscale($body_spacer_min, 1, true) );
+		padding-right: mscale($body_spacer_min, 1, true);
+	}
+	.padding-h-md, .padding-horizontal-medium {
+		padding-left: pixels($body_spacer_max);
+		padding-left: $body_spacer_max;
+		padding-right: pixels($body_spacer_max);
+		padding-right: $body_spacer_max;
+	}
+	.padding-h-lg, .padding-horizontal-large {
+		padding-left: pixels(mscale($body_spacer_max, 1));
+		padding-left: mscale($body_spacer_max, 1);
+		padding-right: pixels(mscale($body_spacer_max, 1));
+		padding-right: mscale($body_spacer_max, 1);
 	}
 	.padding-left, .padding-left {
-		padding-left: pixels($body_spacer_min) !important;
-		padding-left: $body_spacer_min !important;
+		padding-left: pixels($body_spacer_min);
+		padding-left: $body_spacer_min;
 	}
 	.padding-right, .padding-right {
-		padding-right: pixels($body_spacer_min) !important;
-		padding-right: $body_spacer_min !important;
+		padding-right: pixels($body_spacer_min);
+		padding-right: $body_spacer_min;
 	}
 	.padding-v, .padding-vertical {
-		padding-top: pixels($body_spacer_min) !important;
-		padding-top: $body_spacer_min !important;
-		padding-bottom: pixels($body_spacer_min) !important;
-		padding-bottom: $body_spacer_min !important;
+		padding-top: pixels($body_spacer_min);
+		padding-top: $body_spacer_min;
+		padding-bottom: pixels($body_spacer_min);
+		padding-bottom: $body_spacer_min;
 	}
 	.padding-v-sm, .padding-vertical-sm {
-		padding-top: pixels( mscale($body_spacer_min, 1, true) ) !important;
-		padding-top: mscale($body_spacer_min, 1, true) !important;
-		padding-bottom:  pixels( mscale($body_spacer_min, 1, true) ) !important;
-		padding-bottom:  mscale($body_spacer_min, 1, true) !important;
+		padding-top: pixels( mscale($body_spacer_min, 1, true) );
+		padding-top: mscale($body_spacer_min, 1, true);
+		padding-bottom:  pixels( mscale($body_spacer_min, 1, true) );
+		padding-bottom:  mscale($body_spacer_min, 1, true);
+	}
+	.padding-v-md, .padding-vertical-md {
+		padding-top: pixels($body_spacer_max);
+		padding-top: $body_spacer_max;
+		padding-bottom:  pixels($body_spacer_max);
+		padding-bottom:  $body_spacer_max;
 	}
 	.padding-top, .padding-top {
-		padding-top: pixels($body_spacer_min) !important;
-		padding-top: $body_spacer_min !important;
+		padding-top: pixels($body_spacer_min);
+		padding-top: $body_spacer_min;
 	}
 	.padding-bottom, .padding-bot {
-		padding-bottom: pixels($body_spacer_min) !important;
-		padding-bottom: $body_spacer_min !important;
+		padding-bottom: pixels($body_spacer_min);
+		padding-bottom: $body_spacer_min;
 	}
 	.padding-bottom, .padding-bot {
-		padding-bottom: pixels( mscale($body_spacer_min, 1, true) ) !important;
-		padding-bottom: mscale($body_spacer_min, 1, true) !important;
+		padding-bottom: pixels( mscale($body_spacer_min, 1, true) );
+		padding-bottom: mscale($body_spacer_min, 1, true);
 	}
 	.padding-surround-top {
-		padding-right: pixels($body_spacer_min) !important;
-		padding-right: $body_spacer_min !important;
-		padding-top: pixels($body_spacer_min) !important;
-		padding-top: $body_spacer_min !important;
-		padding-left: pixels($body_spacer_min) !important;
-		padding-left: $body_spacer_min !important;
+		padding-right: pixels($body_spacer_min);
+		padding-right: $body_spacer_min;
+		padding-top: pixels($body_spacer_min);
+		padding-top: $body_spacer_min;
+		padding-left: pixels($body_spacer_min);
+		padding-left: $body_spacer_min;
 	}
 	.padding-surround-bottom, .padding-surround-bot {
-		padding-bottom: pixels($body_spacer_min) !important;
-		padding-bottom: $body_spacer_min !important;
-		padding-right: pixels($body_spacer_min) !important;
-		padding-right: $body_spacer_min !important;
-		padding-left: pixels($body_spacer_min) !important;
-		padding-left: $body_spacer_min !important;
+		padding-bottom: pixels($body_spacer_min);
+		padding-bottom: $body_spacer_min;
+		padding-right: pixels($body_spacer_min);
+		padding-right: $body_spacer_min;
+		padding-left: pixels($body_spacer_min);
+		padding-left: $body_spacer_min;
 	}
 	.padding-surround-right {
-		padding-top: pixels($body_spacer_min) !important;
-		padding-top: $body_spacer_min !important;
-		padding-bottom: pixels($body_spacer_min) !important;
-		padding-bottom: $body_spacer_min !important;
-		padding-right: pixels($body_spacer_min) !important;
-		padding-right: $body_spacer_min !important;
+		padding-top: pixels($body_spacer_min);
+		padding-top: $body_spacer_min;
+		padding-bottom: pixels($body_spacer_min);
+		padding-bottom: $body_spacer_min;
+		padding-right: pixels($body_spacer_min);
+		padding-right: $body_spacer_min;
 	}
 	.padding-surround-left {
-		padding-top: pixels($body_spacer_min) !important;
-		padding-top: $body_spacer_min !important;
-		padding-bottom: pixels($body_spacer_min) !important;
-		padding-bottom: $body_spacer_min !important;
-		padding-left: pixels($body_spacer_min) !important;
-		padding-left: $body_spacer_min !important;
+		padding-top: pixels($body_spacer_min);
+		padding-top: $body_spacer_min;
+		padding-bottom: pixels($body_spacer_min);
+		padding-bottom: $body_spacer_min;
+		padding-left: pixels($body_spacer_min);
+		padding-left: $body_spacer_min;
 	}
 	.padding-none {
-		padding: 0px !important;
-		padding: 0rem !important;
+		padding: 0px;
+		padding: 0rem;
 	}
 	.padding-top-none {
-		padding-top: 0px !important;
-		padding-top: 0rem !important;
+		padding-top: 0px;
+		padding-top: 0rem;
 	}
 	.padding-bottom-none, .margin-bot-none, {
-		padding-bottom: 0px !important;
-		padding-bottom: 0rem !important;
+		padding-bottom: 0px;
+		padding-bottom: 0rem;
 	}
 	.padding-right-none {
-		padding-right: 0px !important;
-		padding-right: 0rem !important;
+		padding-right: 0px;
+		padding-right: 0rem;
 	}
 	.padding-left-none {
-		padding-left: 0px !important;
-		padding-left: 0rem !important;
+		padding-left: 0px;
+		padding-left: 0rem;
 	}
 }
 
@@ -380,93 +399,97 @@
 // MARGIN UTILITY
 @mixin margin-utility() {
 	.margin {
-		margin: pixels($body_spacer_min) !important;
-		margin: $body_spacer_min !important;
+		margin: pixels($body_spacer_min);
+		margin: $body_spacer_min;
 	}
 	.margin-center { margin-right: auto; margin-left: auto; }
 	.margin-h {
-		margin-left: pixels($body_spacer_min) !important;
-		margin-left: $body_spacer_min !important;
-		margin-right: pixels($body_spacer_min) !important;
-		margin-right: $body_spacer_min !important;
+		margin-left: pixels($body_spacer_min);
+		margin-left: $body_spacer_min;
+		margin-right: pixels($body_spacer_min);
+		margin-right: $body_spacer_min;
 	}
 	.margin-left, .margin-left {
-		margin-left: pixels($body_spacer_min) !important;
-		margin-left: $body_spacer_min !important;
+		margin-left: pixels($body_spacer_min);
+		margin-left: $body_spacer_min;
 	}
 	.margin-right, .margin-right {
-		margin-right: pixels($body_spacer_min) !important;
-		margin-right: $body_spacer_min !important;
+		margin-right: pixels($body_spacer_min);
+		margin-right: $body_spacer_min;
 	}
 	.margin-v {
-		margin-top: pixels($body_spacer_min) !important;
-		margin-top: $body_spacer_min !important;
-		margin-bottom: pixels($body_spacer_min) !important;
-		margin-bottom: $body_spacer_min !important;
+		margin-top: pixels($body_spacer_min);
+		margin-top: $body_spacer_min;
+		margin-bottom: pixels($body_spacer_min);
+		margin-bottom: $body_spacer_min;
 	}
 	.margin-top {
-		margin-top: pixels($body_spacer_min) !important;
-		margin-top: $body_spacer_min !important;
+		margin-top: pixels($body_spacer_min);
+		margin-top: $body_spacer_min;
 	}
 	.margin-top-sm {
-		margin-top: mscalepixels( ($body_spacer_min, 1 , true) ) !important;
-		margin-top: mscale($body_spacer_min, 1 , true) !important;
+		margin-top: mscalepixels( ($body_spacer_min, 1 , true) );
+		margin-top: mscale($body_spacer_min, 1 , true);
 	}
 	.margin-bottom, .margin-bot, {
-		margin-bottom: pixels($body_spacer_min) !important;
-		margin-bottom: $body_spacer_min !important;
+		margin-bottom: pixels($body_spacer_min);
+		margin-bottom: $body_spacer_min;
 	}
 	.margin-surround-top {
-		margin-right: pixels($body_spacer_min) !important;
-		margin-right: $body_spacer_min !important;
-		margin-top: pixels($body_spacer_min) !important;
-		margin-top: $body_spacer_min !important;
-		margin-left: pixels($body_spacer_min) !important;
-		margin-left: $body_spacer_min !important;
+		margin-right: pixels($body_spacer_min);
+		margin-right: $body_spacer_min;
+		margin-top: pixels($body_spacer_min);
+		margin-top: $body_spacer_min;
+		margin-left: pixels($body_spacer_min);
+		margin-left: $body_spacer_min;
 	}
 	.margin-surround-bottom, .margin-surround-bot {
-		margin-bottom: pixels($body_spacer_min) !important;
-		margin-bottom: $body_spacer_min !important;
-		margin-right: pixels($body_spacer_min) !important;
-		margin-right: $body_spacer_min !important;
-		margin-left: pixels($body_spacer_min) !important;
-		margin-left: $body_spacer_min !important;
+		margin-bottom: pixels($body_spacer_min);
+		margin-bottom: $body_spacer_min;
+		margin-right: pixels($body_spacer_min);
+		margin-right: $body_spacer_min;
+		margin-left: pixels($body_spacer_min);
+		margin-left: $body_spacer_min;
 	}
 	.margin-surround-right {
-		margin-top: pixels($body_spacer_min) !important;
-		margin-top: $body_spacer_min !important;
-		margin-bottom: pixels($body_spacer_min) !important;
-		margin-bottom: $body_spacer_min !important;
-		margin-right: pixels($body_spacer_min) !important;
-		margin-right: $body_spacer_min !important;
+		margin-top: pixels($body_spacer_min);
+		margin-top: $body_spacer_min;
+		margin-bottom: pixels($body_spacer_min);
+		margin-bottom: $body_spacer_min;
+		margin-right: pixels($body_spacer_min);
+		margin-right: $body_spacer_min;
 	}
 	.margin-surround-left {
-		margin-top: pixels($body_spacer_min) !important;
-		margin-top: $body_spacer_min !important;
-		margin-bottom: pixels($body_spacer_min) !important;
-		margin-bottom: $body_spacer_min !important;
-		margin-left: pixels($body_spacer_min) !important;
-		margin-left: $body_spacer_min !important;
+		margin-top: pixels($body_spacer_min);
+		margin-top: $body_spacer_min;
+		margin-bottom: pixels($body_spacer_min);
+		margin-bottom: $body_spacer_min;
+		margin-left: pixels($body_spacer_min);
+		margin-left: $body_spacer_min;
 	}
 	.margin-none {
-		margin: 0px !important;
-		margin: 0rem !important;
+		margin: 0px;
+		margin: 0rem;
 	}
 	.margin-top-none {
-		margin-top: 0px !important;
-		margin-top: 0rem !important;
+		margin-top: 0px;
+		margin-top: 0rem;
 	}
 	.margin-bottom-none, .margin-bot-none, {
-		margin-bottom: 0px !important;
-		margin-bottom: 0rem !important;
+		margin-bottom: 0px;
+		margin-bottom: 0rem;
 	}
 	.margin-right-none {
-		margin-right: 0px !important;
-		margin-right: 0rem !important;
+		margin-right: 0px;
+		margin-right: 0rem;
 	}
 	.margin-left-none {
-		margin-left: 0px !important;
-		margin-left: 0rem !important;
+		margin-left: 0px;
+		margin-left: 0rem;
+	}
+	.no-margin-important {
+		margin: 0px !important;
+		margin: 0rem !important;
 	}
 }
 
@@ -827,6 +850,7 @@
 
 // image utility classes
 @mixin image-utility() {
+	// HTML5 contain image in space
 	.image-contain, .img-contain,
 	.contain-image, .contain-img,
 	.image-contain img, .img-contain img,
@@ -835,6 +859,7 @@
 		width: 100%;
 		object-fit: contain;
 	}
+	// HTML5 fill image in space
 	.image-fill, .img-fill,
 	.fill-image, .fill-img,
 	.image-fill img, .img-fill img,
@@ -842,6 +867,36 @@
 		position: relative;
 		width: 100%;
 		object-fit: fill;
+	}
+	// image covers the space of this container
+	.image-cover {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		overflow: hidden;
+		& img {
+			flex-shrink: 0;
+			min-width: 100%;
+			min-height: 100%;
+			object-fit: cover;
+		}
+	}
+	// image fits the space of this container
+	.image-fit {
+		display: block;
+		position: relative;
+		& img {
+			max-height: 100%;
+			max-width: 100%;
+			width: auto;
+			height: auto;
+			position: absolute;
+			top: 0;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			margin: auto;
+		}
 	}
 }
 

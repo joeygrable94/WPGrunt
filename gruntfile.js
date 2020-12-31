@@ -36,7 +36,7 @@ module.exports = function(grunt) {
 					{
 						expand: true,
 						flatten: true,
-						src: ['<%= config.dev_stack %>/js/compiled/scripts.min.js'],
+						src: ['<%= config.dev_stack %>/js/dist/scripts.min.js'],
 						dest: '<%= config.dist_stack %>/js/',
 						filter: 'isFile'
 					}
@@ -102,7 +102,7 @@ module.exports = function(grunt) {
 			options: {
 				esversion: 6,
 				globals: {
-					jQuery: true
+					jQuery: false
 				}
 			}
 		},
@@ -118,7 +118,7 @@ module.exports = function(grunt) {
 					'<%= config.dev_stack %>/js/vendors/*.js',
 					'<%= config.dev_stack %>/js/src/*.js'
 				],
-				dest: '<%= config.dev_stack %>/js/concatenated/scripts.concat.js'
+				dest: '<%= config.dev_stack %>/js/dist/scripts.concat.js'
 			}
 		},
 
@@ -129,10 +129,9 @@ module.exports = function(grunt) {
 			},
 			build : {
 				src : [
-					'<%= config.dev_stack %>/js/concatenated/scripts.concat.js'
+					'<%= config.dev_stack %>/js/dist/scripts.concat.js'
 				],
-				dest: '<%= config.dev_stack %>/js/compiled/scripts.min.js'
-
+				dest: '<%= config.dev_stack %>/js/dist/scripts.min.js'
 			}
 		},
 

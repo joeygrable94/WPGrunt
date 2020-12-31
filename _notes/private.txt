@@ -1,0 +1,103 @@
+----------------------------------------------------------------------------------------------------
+LOCAL SERVER, DATABASE, WORDPRESS
+----------------------------------------------------------------------------------------------------
+SERVER
+www:			http://URL.local:8888
+host:			URL.local:8888
+port:			8889
+
+DATABASE
+DB host:		localhost
+DB name:		
+DB user:		root
+DB pass:		root
+connect:		mysql -u username -p -h mysql.host database
+
+WORDPRESS
+username:		
+password:		
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+STAGING SERVER, DATABASE, WORDPRESS
+----------------------------------------------------------------------------------------------------
+SERVER
+www:			
+host:			
+port:			22
+SSH user:		
+SSH pass:		
+path:			/home/XXX/YYY
+SSH connect:	ssh -p 22 -v XXX@HOST
+
+DATABASE
+DB host:		mysql.
+DB name:		
+DB user:		
+DB pass:		
+db connect:		mysql -u DB_USER -p -h DB_HOST DB_NAME
+
+WORDPRESS
+WP admin:		
+WP user:		
+WP pass:		
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+PRODUCTION SERVER, DATABASE, WORDPRESS
+----------------------------------------------------------------------------------------------------
+SERVER
+ip address: 	
+host:			
+port:			
+SSH user:		
+SSH pass:		
+path:			
+SSH connect:	ssh -p 22 -v USER@HOST
+SSH connect:	ssh -p 22 -v USER@HOST
+
+DATABASE
+DB host:		
+DB name:		
+DB user:		
+DB pass:		
+
+WORDPRESS
+WP admin:		
+username:		
+password:		
+
+
+
+
+
+----------------------------------------------------------------------------------------------------
+SQL UPDATE SITEURL AND HOMEURL
+----------------------------------------------------------------------------------------------------
+CONNECT SSH:
+	ssh -v USER@HOST
+	PASS
+
+	ssh -p 22 -v USER@HOST
+	PASS
+
+CONNECT MYSQL:
+	mysql --host=DB_HOST --user=DB_USER DB_NAME
+	DB_PASS
+
+SEARCH & REPLACE CMDs:
+	UPDATE wp_options SET option_value = replace(option_value, 'REPLACE_THIS', 'FOR_THIS')
+		WHERE option_name = 'home' OR option_name = 'siteurl';
+
+	UPDATE wp_posts SET guid = replace(guid, 'REPLACE_THIS', 'FOR_THIS');
+	UPDATE wp_posts SET post_content = replace(post_content, 'REPLACE_THIS', 'FOR_THIS');
+
+
+
+

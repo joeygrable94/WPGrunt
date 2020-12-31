@@ -1,0 +1,404 @@
+// --------------------------------------------------
+// BUTTONS BASE
+	button,
+	.button-base,
+	.button.base
+	.btn.base {
+		@include button-base();
+		padding:
+			(pixels(mscale($body_spacer_min,1,true)) - 1px)
+			pixels($body_spacer_max)
+			(pixels(mscale($body_spacer_min,1,true)) + 1px)
+			pixels($body_spacer_max);
+		padding:
+			(mscale($body_spacer_min,1,true) - rem(1))
+			$body_spacer_max
+			(mscale($body_spacer_min,1,true) + rem(1))
+			$body_spacer_max;
+		border-radius: $border-radius-default;
+		transition: $transition-fastest;
+		font-weight: $btn-font-weight;
+		& * {
+			color: inherit !important;
+			font-weight: inherit;
+			text-decoration: none;
+			&:hover { text-decoration: none; }
+		}
+		&:hover {
+			transition: $transition-fastest;
+			text-decoration: none;
+			cursor: pointer;
+		}
+	}
+
+
+// --------------------------------------------------
+// COLORS
+	.button-default,
+	.btn-default,
+	.button.default,
+	.btn.default {
+		@extend .button-base;
+		border-width:			$btn-default-border-width;
+		border-style:			$btn-default-border-style;
+		border-color:			$btn-default-border-color;
+		color:					$btn-default-color;
+		background-color:		$btn-default-background;
+		&:hover {
+			color:				$btn-default-color-hover;
+			background-color:	$btn-default-background-hover;
+			border-width:		$btn-default-border-width-hover;
+			border-style:		$btn-default-border-style-hover;
+			border-color:		$btn-default-border-color-hover;
+		}
+	}
+
+	.button-primary,
+	.btn-primary,
+	.button.primary,
+	.btn.primary {
+		@extend .button-base;
+		border-width:			$btn-primary-border-width;
+		border-style:			$btn-primary-border-style;
+		border-color:			$btn-primary-border-color;
+		color:					$btn-primary-color;
+		background-color:		$btn-primary-background;
+		&:hover {
+			color:				$btn-primary-color-hover;
+			background-color:	$btn-primary-background-hover;
+			border-width:		$btn-primary-border-width-hover;
+			border-style:		$btn-primary-border-style-hover;
+			border-color:		$btn-primary-border-color-hover;
+		}
+	}
+
+	.button-secondary,
+	.btn-secondary,
+	.button.secondary,
+	.btn.secondary {
+		@extend .button-base;
+		border-width:			$btn-secondary-border-width;
+		border-style:			$btn-secondary-border-style;
+		border-color:			$btn-secondary-border-color;
+		color:					$btn-secondary-color;
+		background-color:		$btn-secondary-background;
+		&:hover {
+			color:				$btn-secondary-color-hover;
+			background-color:	$btn-secondary-background-hover;
+			border-width:		$btn-secondary-border-width-hover;
+			border-style:		$btn-secondary-border-style-hover;
+			border-color:		$btn-secondary-border-color-hover;
+		}
+	}
+
+	.button-tertiary,
+	.btn-tertiary,
+	.button.tertiary,
+	.btn.tertiary {
+		@extend .button-base;
+		border-width:			$btn-tertiary-border-width;
+		border-style:			$btn-tertiary-border-style;
+		border-color:			$btn-tertiary-border-color;
+		color:					$btn-tertiary-color;
+		background-color:		$btn-tertiary-background;
+		&:hover {
+			color:				$btn-tertiary-color-hover;
+			background-color:	$btn-tertiary-background-hover;
+			border-width:		$btn-tertiary-border-width-hover;
+			border-style:		$btn-tertiary-border-style-hover;
+			border-color:		$btn-tertiary-border-color-hover;
+		}
+	}
+
+	.button-success,
+	.btn-success,
+	.button.success,
+	.btn.success {
+		@extend .button-base;
+		border-width:			$btn-success-border-width;
+		border-style:			$btn-success-border-style;
+		border-color:			$btn-success-border-color;
+		color:					$btn-success-color;
+		background-color:		$btn-success-background;
+		&:hover {
+			color:				$btn-success-color-hover;
+			background-color:	$btn-success-background-hover;
+			border-width:		$btn-success-border-width-hover;
+			border-style:		$btn-success-border-style-hover;
+			border-color:		$btn-success-border-color-hover;
+		}
+	}
+
+	.button-info,
+	.btn-info,
+	.button.info,
+	.btn.info {
+		@extend .button-base;
+		border-width:			$btn-info-border-width;
+		border-style:			$btn-info-border-style;
+		border-color:			$btn-info-border-color;
+		color:					$btn-info-color;
+		background-color:		$btn-info-background;
+		&:hover {
+			color:				$btn-info-color-hover;
+			background-color:	$btn-info-background-hover;
+			border-width:		$btn-info-border-width-hover;
+			border-style:		$btn-info-border-style-hover;
+			border-color:		$btn-info-border-color-hover;
+		}
+	}
+
+	.button-warning,
+	.btn-warning,
+	.button.warning,
+	.btn.warning,
+	.button-warn,
+	.btn-warn,
+	.button.warn,
+	.btn.warn {
+		@extend .button-base;
+		border-width:			$btn-warning-border-width;
+		border-style:			$btn-warning-border-style;
+		border-color:			$btn-warning-border-color;
+		color:					$btn-warning-color;
+		background-color:		$btn-warning-background;
+		&:hover {
+			color:				$btn-warning-color-hover;
+			background-color:	$btn-warning-background-hover;
+			border-width:		$btn-warning-border-width-hover;
+			border-style:		$btn-warning-border-style-hover;
+			border-color:		$btn-warning-border-color-hover;
+		}
+	}
+
+	.button-error,
+	.btn-error,
+	.button.error,
+	.btn.error {
+		@extend .button-base;
+		border-width:			$btn-error-border-width;
+		border-style:			$btn-error-border-style;
+		border-color:			$btn-error-border-color;
+		color:					$btn-error-color;
+		background-color:		$btn-error-background;
+		&:hover {
+			color:				$btn-error-color-hover;
+			background-color:	$btn-error-background-hover;
+			border-width:		$btn-error-border-width-hover;
+			border-style:		$btn-error-border-style-hover;
+			border-color:		$btn-error-border-color-hover;
+		}
+	}
+
+
+// --------------------------------------------------
+// OUTLINED COLORS
+	.button-default,
+	.btn-default,
+	.button.default,
+	.btn.default {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-default-border-width;
+			border-style:			$btn-default-border-style;
+			border-color:			$btn-default-border-color;
+			color:					$btn-default-color;
+			background-color:		$transparent;
+			&:hover {
+				color:				$color-dark;
+				background-color:	$transparent;
+				border-width:		$btn-default-border-width-hover;
+				border-style:		$btn-default-border-style-hover;
+				border-color:		lighten($btn-default-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-primary,
+	.btn-primary,
+	.button.primary,
+	.btn.primary {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-primary-border-width;
+			border-style:			$btn-primary-border-style;
+			border-color:			$btn-primary-border-color;
+			color:					$btn-primary-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-primary-color-hover;
+				background-color:	$btn-primary-background;
+				border-width:		$btn-primary-border-width-hover;
+				border-style:		$btn-primary-border-style-hover;
+				border-color:		lighten($btn-primary-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-secondary,
+	.btn-secondary,
+	.button.secondary,
+	.btn.secondary {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-secondary-border-width;
+			border-style:			$btn-secondary-border-style;
+			border-color:			$btn-secondary-border-color;
+			color:					$btn-secondary-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-secondary-color-hover;
+				background-color:	$btn-secondary-background;
+				border-width:		$btn-secondary-border-width-hover;
+				border-style:		$btn-secondary-border-style-hover;
+				border-color:		lighten($btn-secondary-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-tertiary,
+	.btn-tertiary,
+	.button.tertiary,
+	.btn.tertiary {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-tertiary-border-width;
+			border-style:			$btn-tertiary-border-style;
+			border-color:			$btn-tertiary-border-color;
+			color:					$btn-tertiary-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-tertiary-color-hover;
+				background-color:	$btn-tertiary-background;
+				border-width:		$btn-tertiary-border-width-hover;
+				border-style:		$btn-tertiary-border-style-hover;
+				border-color:		lighten($btn-tertiary-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-success,
+	.btn-success,
+	.button.success,
+	.btn.success {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-success-border-width;
+			border-style:			$btn-success-border-style;
+			border-color:			$btn-success-border-color;
+			color:					$btn-success-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-success-color-hover;
+				background-color:	$btn-success-background;
+				border-width:		$btn-success-border-width-hover;
+				border-style:		$btn-success-border-style-hover;
+				border-color:		lighten($btn-success-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-info,
+	.btn-info,
+	.button.info,
+	.btn.info {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-info-border-width;
+			border-style:			$btn-info-border-style;
+			border-color:			$btn-info-border-color;
+			color:					$btn-info-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-info-color-hover;
+				background-color:	$btn-info-background;
+				border-width:		$btn-info-border-width-hover;
+				border-style:		$btn-info-border-style-hover;
+				border-color:		lighten($btn-info-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-warning,
+	.btn-warning,
+	.button.warning,
+	.btn.warning,
+	.button-warn,
+	.btn-warn,
+	.button.warn,
+	.btn.warn {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-warning-border-width;
+			border-style:			$btn-warning-border-style;
+			border-color:			$btn-warning-border-color;
+			color:					$btn-warning-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-warning-color-hover;
+				background-color:	$btn-warning-background;
+				border-width:		$btn-warning-border-width-hover;
+				border-style:		$btn-warning-border-style-hover;
+				border-color:		lighten($btn-warning-border-color-hover, 10%);
+			}
+		}
+	}
+
+	.button-error,
+	.btn-error,
+	.button.error,
+	.btn.error {
+		&#{-outline}, &#{-outlined}, &#{-border} {
+			border-width:			$btn-error-border-width;
+			border-style:			$btn-error-border-style;
+			border-color:			$btn-error-border-color;
+			color:					$btn-error-background;
+			background-color:		$transparent;
+			&:hover {
+				color:				$btn-error-color-hover;
+				background-color:	$btn-error-background;
+				border-width:		$btn-error-border-width-hover;
+				border-style:		$btn-error-border-style-hover;
+				border-color:		lighten($btn-error-border-color-hover, 10%);
+			}
+		}
+	}
+
+
+// --------------------------------------------------
+// DISABLED STATE
+	button:disabled,
+	.button-disabled,
+	.btn-disabled,
+	.button.disabled,
+	.btn.disabled,
+	.button-disabled-outline,
+	.btn-disabled-outline,
+	.button.disabled-outline,
+	.btn.disabled-outline {
+		@extend .button-base;
+		border-width:			$btn-default-border-width;
+		border-style:			$btn-default-border-style;
+		border-color:			$btn-link-disabled-color;
+		color:					$btn-link-disabled-color;
+		background-color:		$white;
+		&:hover {
+			color:				$btn-link-disabled-color;
+			background-color:	$white;
+			border-width:		$btn-default-border-width;
+			border-style:		$btn-default-border-style;
+			border-color:		$btn-link-disabled-color;
+			cursor: not-allowed !important;
+		}
+	}
+
+
+// --------------------------------------------------
+// ROUNDED STYLE
+	.button-round,
+	.btn-round,
+	.button.round,
+	.btn.round,
+	.button-rounded,
+	.btn-rounded,
+	.button.rounded,
+	.btn.rounded {
+		border-radius: $body_spacer_max;
+	}
+
+
+// --------------------------------------------------
+// 

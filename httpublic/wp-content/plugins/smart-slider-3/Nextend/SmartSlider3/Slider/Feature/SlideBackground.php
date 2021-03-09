@@ -63,6 +63,9 @@ class SlideBackground {
 
         $style = '';
         $color = $slide->fill($slide->parameters->get('backgroundColor', ''));
+        if (empty($color)) {
+            $color = 'ffffff00';
+        }
         if (strlen($color) > 0 && $color[0] == '#') {
             $color = substr($color, 1);
             if (strlen($color) == 6) {
@@ -73,7 +76,11 @@ class SlideBackground {
 
         if ($gradient != 'off') {
             $colorEnd = $slide->fill($slide->parameters->get('backgroundColorEnd', 'ffffff00'));
-            if (strlen($colorEnd) > 0 && $colorEnd[0] == '#') {
+            if (empty($colorEnd)) {
+                $colorEnd = 'ffffff00';
+            }
+
+            if ($colorEnd[0] == '#') {
                 $colorEnd = substr($colorEnd, 1);
                 if (strlen($colorEnd) == 6) {
                     $colorEnd .= 'ff';

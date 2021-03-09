@@ -61,7 +61,7 @@ use Nextend\WordPress\OutputBuffer;
     if (!empty($externals)) {
         $externals = explode("\n", $externals);
         foreach ($externals as $external) {
-            echo "<link rel='stylesheet' href='" . $external . "' type='text/css' media='all' />";
+            echo "<link rel='stylesheet' href='" . $external . "' type='text/css' media='all'>";
         }
     }
     ?>
@@ -174,7 +174,7 @@ echo $this->getSliderHTML();
                     $margin = $slider.closest('.n2-ss-margin'),
                     margin = [$margin.css('marginTop'), $margin.css('marginRight'), $margin.css('marginBottom'), $margin.css('marginLeft')].join(' ');
 
-                $margin.css('margin', 0);
+                $margin.css('margin', '0');
 
                 // If the slider is already ready, then SliderResize might not happen to adjust the iframe size in the parent
                 if (slider && slider.stages.resolved('ResizeFirst')) {

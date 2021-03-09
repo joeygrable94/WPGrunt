@@ -97,7 +97,7 @@ def askBuildQuestions():
 	stage_db_user	=	input("STAGE — database username: ")
 	stage_db_user	=	stage_db_user		or 'DB_USER'
 	stage_db_pass	=	input("STAGE — database password: ")
-	stage_db_pass	=	stage_db_pass		or 'DB_PASS'
+	stage_db_pass	=	stage_db_pass		or 'DB_PASSWORD'
 	stage_access	=	input("STAGE — is host secure \"https://\"? (yes or no) ")
 	if stage_access.lower() == '' or stage_access.lower() == 'no':
 		stage_access = 'http://'
@@ -120,7 +120,7 @@ def askBuildQuestions():
 	prod_db_user	=	input("PROD — database username: ")
 	prod_db_user	=	prod_db_user		or 'DB_USER'
 	prod_db_pass	=	input("PROD — database password: ")
-	prod_db_pass	=	prod_db_pass		or 'DB_PASS'
+	prod_db_pass	=	prod_db_pass		or 'DB_PASSWORD'
 	prod_access	=	input("PROD — is host secure \"https://\"? (yes or no) ")
 	if prod_access.lower() == '' or prod_access.lower() == 'no':
 		prod_access = 'http://'
@@ -213,11 +213,8 @@ def returnDefinedPhpVar(state, line, config, var_name):
 	elif state == 'WPSALT':
 		new_line = "define( '%s', '%s' );\n" % ( var_name.upper(), wpSaltGenerator() )
 	# return php line
-	if len(new_line) > 0:
-		return new_line
-	else:
-		return line
-
+	return new_line
+	
 # grabs the wp-config.php file
 # and prepends input config data
 def updateWpConfigFile( config ):

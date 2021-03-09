@@ -2,36 +2,3 @@
 // ==================================================
 
 
-.button {
-	@include button-base();
-	@include button-size(2, 1, true);
-}
-.button-orange {
-	border-radius: $border-radius-default !important;
-	border-style: solid !important;
-	border-color: lighten($color-gcc-orange, 10%) !important;
-	background-color: $color-gcc-orange !important;
-	color: $color-white !important;
-	& * { color: $color-white !important; }
-	@include transition();
-	&:hover {
-		background-color: $color-gcm-navy !important;
-		border-color: $color-gcm-cool !important;
-		cursor: pointer;
-	}
-}
-
-.button-blue {
-	border-radius: $border-radius-default !important;
-	border-style: solid !important;
-	border-color: lighten($color-gcm-navy, 10%) !important;
-	background-color: $color-gcm-navy !important;
-	color: $color-white !important;
-	& * { color: $color-white !important; }
-	@include transition();
-	&:hover {
-		background-color: $color-gcc-orange !important;
-		border-color: $color-gcc-yellow !important;
-		cursor: pointer;
-	}
-}

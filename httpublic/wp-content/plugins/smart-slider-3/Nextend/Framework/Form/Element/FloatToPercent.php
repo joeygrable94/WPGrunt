@@ -43,7 +43,7 @@ class FloatToPercent extends AbstractFieldHidden {
             'value'        => $this->getValue() * 100,
             'style'        => $this->getStyle(),
             'autocomplete' => 'off'
-        ), false);
+        ), false, false);
 
         if ($this->unit) {
             $html .= Html::tag('div', array(

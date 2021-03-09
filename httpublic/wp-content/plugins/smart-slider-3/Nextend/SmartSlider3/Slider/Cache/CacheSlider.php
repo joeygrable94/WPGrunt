@@ -92,7 +92,7 @@ class CacheSlider extends Manifest {
                         echo n2_('Slider error! Generator source not found: ' . $type);
                     } else {
 
-                        $fileName .= call_user_func_array(array(
+                        $fileName .= call_user_func(array(
                             $generatorSource,
                             'cacheKey'
                         ), $params);

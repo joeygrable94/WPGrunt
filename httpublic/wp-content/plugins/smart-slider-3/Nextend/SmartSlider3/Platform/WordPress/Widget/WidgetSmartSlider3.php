@@ -150,7 +150,7 @@ class WidgetSmartSlider3 extends WP_Widget {
             </select>
             <input id="<?php echo $this->get_field_id('temp-title'); ?>"
                    name="<?php echo $this->get_field_name('temp-title'); ?>" type="hidden"
-                   value="<?php echo $_title; ?>"/>
+                   value="<?php echo $_title; ?>">
 
             <span style="display:block;line-height:2;padding:10px;"><?php n2_e('OR'); ?></span>
 
@@ -162,7 +162,7 @@ class WidgetSmartSlider3 extends WP_Widget {
                 Title:
                 <input class="widefat" id="<?php echo $this->get_field_id('title'); ?>"
                        name="<?php echo $this->get_field_name('title'); ?>" type="text"
-                       value="<?php echo esc_attr($title); ?>"/>
+                       value="<?php echo esc_attr($title); ?>">
             </label>
         </p>
         <?php

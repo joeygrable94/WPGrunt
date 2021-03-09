@@ -18,7 +18,7 @@ $externals = Settings::get('external-css-files');
 if (!empty($externals)) {
     $externals = explode("\n", $externals);
     foreach ($externals as $external) {
-        echo "<link rel='stylesheet' href='" . $external . "' type='text/css' media='all' />";
+        echo "<link rel='stylesheet' href='" . $external . "' type='text/css' media='all'>";
     }
 }
 
@@ -30,7 +30,7 @@ if (!empty($slidesData)) {
     $slideId = key($slidesData);
     if ($slideId > 0) {
         ?>
-        <script type="text/javascript">
+        <script>
             n2ss.ready(<?php echo $this->getSliderID(); ?>, function (slider) {
                 slider.visible(function () {
                     slider.slideToID(<?php echo key($slidesData); ?>);
@@ -43,7 +43,7 @@ if (!empty($slidesData)) {
 ?>
 
 
-<script type="text/javascript">
+<script>
 
     document.addEventListener('keydown', function (e) {
         if (e.key === 'Escape') {

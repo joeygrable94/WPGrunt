@@ -24,7 +24,7 @@ $externals = Settings::get('external-css-files');
 if (!empty($externals)) {
     $externals = explode("\n", $externals);
     foreach ($externals AS $external) {
-        echo "<link rel='stylesheet' href='" . $external . "' type='text/css' media='all' />";
+        echo "<link rel='stylesheet' href='" . $external . "' type='text/css' media='all'>";
     }
 }
 

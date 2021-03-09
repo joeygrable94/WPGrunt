@@ -11,7 +11,7 @@ $closeUrl = $this->getCloseUrl();
 
 <div id="<?php echo $this->getID(); ?>" class="n2_admin__banner">
     <div class="n2_admin__banner_inner">
-        <img src="<?php echo $this->getImage(); ?>" alt=""/>
+        <img src="<?php echo $this->getImage(); ?>" alt="">
         <div class="n2_admin__banner_inner_title"><?php echo $this->getTitle(); ?></div>
         <div class="n2_admin__banner_inner_description"><?php echo $this->getDescription(); ?></div>
         <a class="n2_admin__banner_inner_button n2_button n2_button--big n2_button--green"

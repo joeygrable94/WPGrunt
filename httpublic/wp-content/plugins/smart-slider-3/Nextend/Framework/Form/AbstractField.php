@@ -111,7 +111,7 @@ abstract class AbstractField implements ContainedInterface {
 
         $this->defaultValue = $default;
 
-        foreach ($parameters AS $option => $value) {
+        foreach ($parameters as $option => $value) {
             $option = 'set' . $option;
             $this->{$option}($value);
         }

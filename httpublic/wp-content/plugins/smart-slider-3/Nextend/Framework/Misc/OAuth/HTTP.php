@@ -172,7 +172,7 @@ class HTTP {
     Function OutputDebug($message) {
         if ($this->log_debug) error_log($message); else {
             $message .= "\n";
-            if ($this->html_debug) $message = str_replace("\n", "<br />\n", HtmlEntities($message));
+            if ($this->html_debug) $message = str_replace("\n", "<br>\n", HtmlEntities($message));
             echo $message;
             flush();
         }

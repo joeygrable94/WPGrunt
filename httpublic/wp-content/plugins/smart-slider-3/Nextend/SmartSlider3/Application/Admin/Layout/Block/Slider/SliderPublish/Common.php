@@ -7,7 +7,7 @@ namespace Nextend\SmartSlider3\Application\Admin\Layout\Block\Slider\SliderPubli
  */
 ?>
 
-<script type="text/javascript">
+<script>
 
     N2R('documentReady', function ($) {
 

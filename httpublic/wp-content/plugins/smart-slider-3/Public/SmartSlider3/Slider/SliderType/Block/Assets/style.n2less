@@ -16,13 +16,6 @@
     background-attachment: @backgroundAttachment;
   }
 
-  &.n2-ss-mobileLandscape,
-  &.n2-ss-mobilePortrait {
-    .n2-ss-slider-1 {
-      background-attachment: scroll;
-    }
-  }
-
   .n2-ss-slider-background-video-container {
     position: absolute;
     left: 0;

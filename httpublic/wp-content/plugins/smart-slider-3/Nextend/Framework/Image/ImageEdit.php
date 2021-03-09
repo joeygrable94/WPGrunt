@@ -21,7 +21,7 @@ class ImageEdit {
         }
 
         if ($targetWidth <= 0 || $targetHeight <= 0 || !function_exists('imagecreatefrompng')) {
-            return Filesystem::pathToAbsoluteURL($$imageUrl);
+            return Filesystem::pathToAbsoluteURL($imageUrl);
         }
 
 

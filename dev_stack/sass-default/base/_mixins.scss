@@ -221,27 +221,27 @@
 		padding: $top $right $bottom $left;
 	}
 	// T+B > 0
-	@elseif ($top > 0 and $bottom > 0) {
+	@else if ($top > 0 and $bottom > 0) {
 		padding-top: $top;
 		padding-bottom: $bottom;
 	}
 	// L+R > 0
-	@elseif ($right > 0 and $left > 0) {
+	@else if ($right > 0 and $left > 0) {
 		padding-right: $right;
 		padding-left: $left;
 	}
-	@elseif ($top == 'auto') { padding-top: auto; }
-	@elseif ($right == 'auto') { padding-right: auto; }
-	@elseif ($bottom == 'auto') { padding-bottom: auto; }
-	@elseif ($left == 'auto') { padding-left: auto; }
+	@else if ($top == 'auto') { padding-top: auto; }
+	@else if ($right == 'auto') { padding-right: auto; }
+	@else if ($bottom == 'auto') { padding-bottom: auto; }
+	@else if ($left == 'auto') { padding-left: auto; }
 	// T > 0
-	@elseif ($top > 0) { padding-top: $top; }
+	@else if ($top > 0) { padding-top: $top; }
 	// B > 0
-	@elseif ($bottom > 0) { padding-bottom: $bottom; }
+	@else if ($bottom > 0) { padding-bottom: $bottom; }
 	// R > 0
-	@elseif ($right > 0) { padding-right: $right; }
+	@else if ($right > 0) { padding-right: $right; }
 	// L > 0
-	@elseif ($left > 0) { padding-left: $left; }
+	@else if ($left > 0) { padding-left: $left; }
 }
 
 // PADDING UTILITY
@@ -373,27 +373,27 @@
 		margin: $top $right $bottom $left;
 	}
 	// T+B > 0
-	@elseif ($top > 0 and $bottom > 0) {
+	@else if ($top > 0 and $bottom > 0) {
 		margin-top: $top;
 		margin-bottom: $bottom;
 	}
 	// L+R > 0
-	@elseif ($right > 0 and $left > 0) {
+	@else if ($right > 0 and $left > 0) {
 		margin-right: $right;
 		margin-left: $left;
 	}
-	@elseif ($top == 'auto') { margin-top: auto; }
-	@elseif ($right == 'auto') { margin-right: auto; }
-	@elseif ($bottom == 'auto') { margin-bottom: auto; }
-	@elseif ($left == 'auto') { margin-left: auto; }
+	@else if ($top == 'auto') { margin-top: auto; }
+	@else if ($right == 'auto') { margin-right: auto; }
+	@else if ($bottom == 'auto') { margin-bottom: auto; }
+	@else if ($left == 'auto') { margin-left: auto; }
 	// T > 0
-	@elseif ($top > 0) { margin-top: $top; }
+	@else if ($top > 0) { margin-top: $top; }
 	// B > 0
-	@elseif ($bottom > 0) { margin-bottom: $bottom; }
+	@else if ($bottom > 0) { margin-bottom: $bottom; }
 	// R > 0
-	@elseif ($right > 0) { margin-right: $right; }
+	@else if ($right > 0) { margin-right: $right; }
 	// L > 0
-	@elseif ($left > 0) { margin-left: $left; }
+	@else if ($left > 0) { margin-left: $left; }
 }
 
 // MARGIN UTILITY

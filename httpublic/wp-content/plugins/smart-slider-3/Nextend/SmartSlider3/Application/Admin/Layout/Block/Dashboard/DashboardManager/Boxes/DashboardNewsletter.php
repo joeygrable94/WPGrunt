@@ -23,9 +23,9 @@ use Nextend\Framework\Platform\Platform;
     </div>
 
     <form class="n2_dashboard_newsletter__form">
-        <input type="hidden" name="<?php echo strtoupper(Platform::getName()); ?>" value="Yes"/>
-        <input type="hidden" name="SOURCE" value="Smart Slider 3"/>
-        <input type="email" name="EMAIL" value="<?php echo Platform::getUserEmail(); ?>" placeholder="Email" tabindex="-1"/>
+        <input type="hidden" name="<?php echo strtoupper(Platform::getName()); ?>" value="Yes">
+        <input type="hidden" name="SOURCE" value="Smart Slider 3">
+        <input type="email" name="EMAIL" value="<?php echo Platform::getUserEmail(); ?>" placeholder="Email" tabindex="-1">
     </form>
 
     <div class="n2_dashboard_manager_newsletter__button">
@@ -72,7 +72,7 @@ use Nextend\Framework\Platform\Platform;
 
         $('.n2_dashboard_manager_newsletter__button')
             .on('click', function () {
-                $form.submit();
+                $form.trigger("submit");
             });
 
         $box.find('.n2_dashboard_manager_newsletter__close')

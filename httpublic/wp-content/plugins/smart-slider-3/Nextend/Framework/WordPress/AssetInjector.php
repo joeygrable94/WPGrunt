@@ -55,7 +55,7 @@ class AssetInjector {
                         list($head, $body) = $parts;
                         /**
                          * We must tokenize the HTML comments in the head to prepare for condition CSS/scripts
-                         * Eg.: <!--[if lt IE 9]><link rel='stylesheet' href='ie8.css?ver=1.0' type='text/css' media='all' /> <![endif]-->
+                         * Eg.: <!--[if lt IE 9]><link rel='stylesheet' href='ie8.css?ver=1.0' type='text/css' media='all'> <![endif]-->
                          */
                         $head = preg_replace_callback('/<!--.*?-->/s', array(
                             $this,

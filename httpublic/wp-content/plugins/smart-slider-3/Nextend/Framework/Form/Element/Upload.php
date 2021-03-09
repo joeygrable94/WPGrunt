@@ -25,7 +25,7 @@ class Upload extends AbstractField {
             'name'         => $this->getFieldName(),
             'value'        => $this->getValue(),
             'autocomplete' => 'off'
-        ), false);
+        ), false, false);
 
         Js::addInline('new N2Classes.FormElementUpload("' . $this->fieldID . '");');
 

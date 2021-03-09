@@ -3,8 +3,8 @@ Contributors: nextendweb
 Tags: slider, wordpress slider, image slider, layer slider, responsive slider, slideshow, fullwidth slider, post slider, horizontal slider, vertical slider, photo slider, video slider
 Donate link: https://sites.fastspring.com/nextend/product/smartslider3donate
 Requires at least: 4.9
-Tested up to: 5.6
-Stable tag: 3.4.1.14
+Tested up to: 5.7
+Stable tag: 3.4.1.17
 Requires PHP: 7.0
 License: GPLv3 or later
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
@@ -208,6 +208,30 @@ Of course! Smart Slider use protocol relative urls which works fine on http:// a
 9. Layer slider with layers styles. Made with FREE version.
 
 == Changelog ==
+
+= 3.4.1.17 - 08. March 2021 =
+* Feature: Remove script type attributes
+* Feature: Exclude certain Google fonts from loading
+* Feature: Allow less than 1000ms slide duration values to override the autoplay duration.
+* Fix: Compatibility with AMP for WP
+* Fix: Polylang ajax issue
+* Fix: WP Security Audit Log conflict
+* Fix: Generator fill background color end
+* Fix: WP Rocket 3.8.1 changes
+* Fix: Mouse wheel events outside the slider
+* Fix: Removal of jQuery deprecated functions
+* Other: Simplified Chinese translation
+
+
+= 3.4.1.16 - 18. January 2021 =
+* Fix: WP Rocket compatibility 
+* Fix: B tag line break in Chrome
+
+= 3.4.1.15 - 13. January 2021 =
+* Feature: PHP 8 compatibility 
+* Fix: WordPress post generator dates 
+* Fix: Thumbnail hover switching 
+* Fix: WP Rocket compatibility 
 
 = 3.4.1.14 - 26. November 2020 =
 * Feature: Accessibility improvements

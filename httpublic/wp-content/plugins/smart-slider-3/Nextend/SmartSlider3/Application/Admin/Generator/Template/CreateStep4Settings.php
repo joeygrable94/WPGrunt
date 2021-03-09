@@ -21,7 +21,7 @@ JS::addInline('new N2Classes.GeneratorAdd();');
 
     $this->displayForm();
     ?>
-    <input name="generator[group]" value="<?php echo $generatorGroup->getName(); ?>" type="hidden"/>
-    <input name="generator[type]" value="<?php echo $generatorSource->getName(); ?>" type="hidden"/>
-    <input name="slider-id" value="<?php echo $this->getSliderID(); ?>" type="hidden"/>
+    <input name="generator[group]" value="<?php echo $generatorGroup->getName(); ?>" type="hidden">
+    <input name="generator[type]" value="<?php echo $generatorSource->getName(); ?>" type="hidden">
+    <input name="slider-id" value="<?php echo $this->getSliderID(); ?>" type="hidden">
 </form>

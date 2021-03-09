@@ -129,7 +129,7 @@ class Slides {
             $slides = array_reverse($slides);
         }
 
-        if ($randomize && !$randomizeCache && $randomizeFirst) {
+        if (!$randomizeCache && $randomizeFirst) {
             $this->slider->setActiveSlide($slides[mt_rand(0, count($slides) - 1)]);
         } else {
             for ($i = 0; $i < count($slides); $i++) {

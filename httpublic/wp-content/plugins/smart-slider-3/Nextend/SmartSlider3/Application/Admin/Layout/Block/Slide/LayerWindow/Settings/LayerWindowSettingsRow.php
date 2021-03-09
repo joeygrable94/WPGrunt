@@ -8,7 +8,7 @@ use Nextend\Framework\Form\ContainerInterface;
 use Nextend\Framework\Form\Element\Hidden;
 use Nextend\Framework\Form\Element\LayerWindowFocus;
 use Nextend\Framework\Form\Element\MarginPadding;
-use Nextend\Framework\Form\Element\Mixed\BoxShadow;
+use Nextend\Framework\Form\Element\MixedField\BoxShadow;
 use Nextend\Framework\Form\Element\OnOff;
 use Nextend\Framework\Form\Element\Select;
 use Nextend\Framework\Form\Element\Select\Gradient;

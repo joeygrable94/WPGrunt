@@ -1,7 +1,9 @@
 {
-    "wp_theme": "GC",
+    "proj_name": "wpgrunt",
+    "wp_theme": "gcpress",
     "dev_stack": "./dev_stack",
-    "dist_stack": "./httpublic/wp-content/themes/GC/assets",
+    "dist_stack": "./httpublic/wp-content/themes/gcpress/assets",
+    "sass_dir": "sass-default",
     "local": {
         "mamp": "/Applications/MAMP/Library/bin",
         "host": "wpgrunt.local",
@@ -14,8 +16,7 @@
         "site_dir": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt/httpublic",
         "dump_path": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt/httpublic/dumps",
         "backups": "/Users/joeygrable/Sites/_GIT/JS_GRUNT/WPGrunt/backups",
-        "access": "http://",
-        "db_pass": "root"
+        "access": "http://"
     },
     "staging": {
         "ssh_user": "SSH_USER",
@@ -28,8 +29,7 @@
         "db_password": "DB_PASS",
         "site_dir": "/home/SSH_USER/SITEURL.src.pub",
         "dump_path": "/home/SSH_USER/SITEURL.src.pub/dumps",
-        "access": "http://",
-        "db_pass": "DB_PASS"
+        "access": "http://"
     },
     "production": {
         "ssh_user": "SSH_USER",
@@ -42,7 +42,6 @@
         "db_password": "DB_PASS",
         "site_dir": "/home/SSH_USER/SITEURL.com",
         "dump_path": "/home/SSH_USER/SITEURL.com/dumps",
-        "access": "http://",
-        "db_pass": "DB_PASS"
+        "access": "http://"
     }
 }

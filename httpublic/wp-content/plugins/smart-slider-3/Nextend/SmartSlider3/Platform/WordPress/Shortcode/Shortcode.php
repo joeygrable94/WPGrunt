@@ -122,6 +122,19 @@ class Shortcode {
             'shortcodeModeToNoop'
         ), 0);
 
+        /**
+         * Remove sliders from the Accelerated Mobile Pages version of the site
+         * @url https://wordpress.org/plugins/accelerated-mobile-pages/
+         * The other AMP plugin has a deprecated message for the "pre_amp_render_post" action, so we need to hook this function only for Accelerated Mobile Pages plugin.
+         */
+        if (defined('AMPFORWP_VERSION')) {
+            add_action('pre_amp_render_post', array(
+                self::class,
+                'shortcodeModeToNoop'
+            ));
+        }
+
+
         add_action('after_setup_theme', function () {
             if (function_exists('KTT_share_args_for_posts')) {
                 /**
@@ -295,7 +308,7 @@ class Shortcode {
                 }
 
                 if ($slideTo) {
-                    echo "<script type=\"text/javascript\">window['ss" . $parameters['slider'] . "'] = " . ($slideTo - 1) . ";</script>";
+                    echo "<script>window['ss" . $parameters['slider'] . "'] = " . ($slideTo - 1) . ";</script>";
                 }
 
                 $applicationTypeFrontend = ApplicationSmartSlider3::getInstance()

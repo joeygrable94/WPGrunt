@@ -1414,9 +1414,9 @@ class LessParser {
 
         // TODO this depends on $this->count
         if ($this->peek("(.*?)(\n|$)", $m, $count)) {
-            throw new Exception("$msg: failed at `$m[1]` $loc<br />FILE: <strong>{$this->lessc->sourceParser->sourceName}</strong>");
+            throw new Exception("$msg: failed at `$m[1]` $loc<br>FILE: <strong>{$this->lessc->sourceParser->sourceName}</strong>");
         } else {
-            throw new Exception("$msg: $loc<br />FILE: <strong>{$this->lessc->sourceParser->sourceName}</strong>");
+            throw new Exception("$msg: $loc<br>FILE: <strong>{$this->lessc->sourceParser->sourceName}</strong>");
         }
     }
 

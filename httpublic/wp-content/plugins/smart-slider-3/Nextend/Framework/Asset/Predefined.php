@@ -53,7 +53,6 @@ class Predefined {
     
 
         Js::addGlobalInline('(function(){var N=this;N.N2_=N.N2_||{r:[],d:[]},N.N2R=N.N2R||function(){N.N2_.r.push(arguments)},N.N2D=N.N2D||function(){N.N2_.d.push(arguments)}}).call(window);');
-        Js::addGlobalInline('if(!window.n2jQuery){window.n2jQuery={ready:function(cb){console.error(\'n2jQuery will be deprecated!\');N2R([\'$\'],cb);}}}');
         $jQueryFallback = site_url('wp-includes/js/jquery/jquery.js');
 
         Js::addGlobalInline('window.nextend={jQueryFallback:\'' . $jQueryFallback . '\',localization: {}, ready: function(cb){console.error(\'nextend.ready will be deprecated!\');N2R(\'documentReady\', function($){cb.call(window,$)})}};');

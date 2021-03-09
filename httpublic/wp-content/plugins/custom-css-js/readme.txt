@@ -4,8 +4,8 @@ Contributors: diana_burduja
 Email: diana@burduja.eu
 Tags: CSS, JS, javascript, custom CSS, custom JS, custom style, site css, add style, customize theme, custom code, external css, css3, style, styles, stylesheet, theme, editor, design, admin
 Requires at least: 3.0.1
-Tested up to: 5.6 
-Stable tag: 3.34.1
+Tested up to: 5.7 
+Stable tag: 3.36
 License: GPLv3
 License URI: http://www.gnu.org/licenses/gpl-3.0.html
 Requires PHP: 5.2.4
@@ -104,6 +104,17 @@ The URL for the linked Codes is built just like the URL for other media (from Me
 $. Add/Edit HTML 
 
 == Changelog ==
+
+= 3.36 =
+* 02/23/2021
+* Fix: fatal error with PHP8.0
+
+= 3.35 =
+* 01/19/2021
+* Tweak: change dummy revision dates to fictional dates before 2000
+* Fix: replace the deprecated postL10n JS object with wp.i18n
+* Fix: add "tipsy-no-html" to the tooltips on the settings page
+
 
 = 3.34.1 =
 * 11/24/2020

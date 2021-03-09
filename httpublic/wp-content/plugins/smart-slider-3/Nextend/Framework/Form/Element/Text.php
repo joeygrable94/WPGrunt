@@ -45,7 +45,7 @@ class Text extends AbstractField implements ContainerInterface {
                 'value'        => $this->getValue(),
                 'style'        => $this->getStyle(),
                 'autocomplete' => 'off'
-            ), false);
+            ), false, false);
 
         $html .= $this->post();
 

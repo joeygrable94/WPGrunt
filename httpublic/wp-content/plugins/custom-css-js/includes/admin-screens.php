@@ -759,7 +759,6 @@ End of comment */ ',
 		}
 
 		?>
-			  <form style="position: relative; margin-top: .5em;">
 
 				<div class="code-mirror-buttons">
 				<div class="button-left"><span rel="tipsy" original-title="<?php _e( 'Beautify Code', 'custom-css-js-pro' ); ?>"><button type="button" tabindex="-1" id="ccj-beautifier"><i class="ccj-i-beautifier"></i></button></span></div>
@@ -793,7 +792,6 @@ End of comment */ ',
 
 
 				<input type="hidden" id="update-post_<?php echo $post->ID; ?>" value="<?php echo wp_create_nonce( 'update-post_' . $post->ID ); ?>" />
-			  </form>
 		<?php
 
 	}
@@ -1415,7 +1413,11 @@ endif;
 	 */
 	function edit_form_before_permalink( $filename = '', $permalink = '', $filetype = 'css' ) {
 		if ( isset( $_GET['language'] ) ) {
-			$filetype = $_GET['language'];
+			$filetype = strtolower(trim($_GET['language']));
+		}
+
+		if ( ! in_array( $filetype, array( 'css', 'js' ) ) ) {
+			return;
 		}
 
 		if ( ! is_string( $filename ) ) {
@@ -1433,15 +1435,12 @@ endif;
 			if ( isset( $options['language'] ) ) {
 				$filetype = $options['language'];
 			}
-			if ( ! @file_exists( CCJ_UPLOAD_DIR . '/' . $slug . '.' . $options['language'] ) ) {
+			if ( ! @file_exists( CCJ_UPLOAD_DIR . '/' . $slug . '.' . $filetype ) ) {
 				$slug = false;
 			}
 			$filename = ( $slug ) ? $slug : $post->ID;
 		}
 
-		if ( ! in_array( $filetype, array( 'css', 'js' ) ) ) {
-			return;
-		}
 		if ( empty( $permalink ) ) {
 			$permalink = CCJ_UPLOAD_URL . '/' . $filename . '.' . $filetype;
 		}

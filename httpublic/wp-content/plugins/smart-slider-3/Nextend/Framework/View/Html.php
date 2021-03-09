@@ -74,7 +74,7 @@ class Html {
         $htmlOptions['src'] = $src;
         $htmlOptions['alt'] = $alt;
 
-        return self::tag('img', $htmlOptions, false);
+        return self::tag('img', $htmlOptions, false, false);
     }
 
     /**
@@ -193,7 +193,7 @@ class Html {
             );
             $options = array_merge($options, $scriptOptions);
 
-            return self::tag('link', $options, false);
+            return self::tag('link', $options, false, false);
         }
 
         return self::tag("style", $scriptOptions + array(
@@ -212,20 +212,17 @@ class Html {
     public static function script($script, $file = false) {
         if ($file) {
             return self::tag('script', array(
-                    'type' => 'text/javascript',
                     'src'  => $script
                 ) + self::getScriptAttributes(), '');
         }
 
         return self::tag('script', array(
-            'type'   => 'text/javascript',
             'encode' => false
         ), $script);
     }
 
     public static function scriptFile($script, $attributes = array()) {
         return self::tag('script', array(
-                'type' => 'text/javascript',
                 'src'  => $script
             ) + self::getScriptAttributes() + $attributes, '');
     }

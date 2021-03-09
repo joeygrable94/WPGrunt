@@ -67,7 +67,7 @@ $conflicts = $this->getConflicts();
 
         <div class="n2_help_center__search_field">
             <form target="_blank" action="https://smartslider.helpscoutdocs.com/search" method="get">
-                <input name="query" type="text" placeholder="<?php n2_e('Search in the knowledge base'); ?>"/>
+                <input name="query" type="text" placeholder="<?php n2_e('Search in the knowledge base'); ?>">
                 <button type="submit"><?php n2_e('Search'); ?></button>
             </form>
         </div>

@@ -2,13 +2,11 @@
 
 namespace Nextend\Framework\Localization;
 
-use MO;
 use Nextend\Framework\Localization\Joomla\JoomlaLocalization;
 use Nextend\Framework\Localization\WordPress\WordPressLocalization;
 use Nextend\Framework\Pattern\SingletonTrait;
 use Nextend\Framework\Platform\Platform;
 use Nextend\Framework\Settings;
-use NOOP_Translations;
 
 class Localization {
 
@@ -25,8 +23,6 @@ class Localization {
 
     protected function init() {
 
-        require_once 'Pomo/translations.php';
-        require_once 'Pomo/mo.php';
         require_once 'Functions.php';
         self::$platformLocalization = new WordPressLocalization();
     }
@@ -38,7 +34,7 @@ class Localization {
     private static function loadTextDomain($domain, $mofile) {
         if (!is_readable($mofile)) return false;
 
-        $mo = new MO();
+        $mo = self::$platformLocalization->createMo();
         if (!$mo->import_from_file($mofile)) return false;
 
         if (isset(self::$l10n[$domain])) $mo->merge_with(self::$l10n[$domain]);
@@ -63,7 +59,7 @@ class Localization {
 
     public static function getTranslationsForDomain($domain) {
         if (!isset(self::$l10n[$domain])) {
-            self::$l10n[$domain] = new NOOP_Translations;
+            self::$l10n[$domain] = self::$platformLocalization->createNOOP_Translations();
         }
 
         return self::$l10n[$domain];

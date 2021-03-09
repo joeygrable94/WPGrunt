@@ -340,7 +340,7 @@ div.n2-ss-spinner-rectangle-4 {
                 $style = 'style="display:none;"';
             }
 
-            return $sliderHTML . '<div id="' . $slider->elementId . '-spinner" ' . $style . '><img src="' . Sanitize::esc_attr(ResourceTranslator::toUrl($customSpinner)) . '" style="width:' . $width . 'px; height:' . $height . 'px; position:absolute;left:50%;top:50%;margin-left:' . $marginLeft . 'px;margin-top:' . $marginTop . 'px;" alt="loading"/></div>';
+            return $sliderHTML . '<div id="' . $slider->elementId . '-spinner" ' . $style . '><img src="' . Sanitize::esc_attr(ResourceTranslator::toUrl($customSpinner)) . '" style="width:' . $width . 'px; height:' . $height . 'px; position:absolute;left:50%;top:50%;margin-left:' . $marginLeft . 'px;margin-top:' . $marginTop . 'px;" alt="loading"></div>';
         } else {
             $spinner = $this->slider->params->get('spinner', 'simpleWhite');
 

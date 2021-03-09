@@ -3,7 +3,7 @@
 namespace Nextend\SmartSlider3\Generator\WordPress\Posts\Sources;
 
 use Nextend\Framework\Form\Container\ContainerTable;
-use Nextend\Framework\Form\Element\Mixed\GeneratorOrder;
+use Nextend\Framework\Form\Element\MixedField\GeneratorOrder;
 use Nextend\Framework\Form\Element\OnOff;
 use Nextend\Framework\Form\Element\Radio;
 use Nextend\Framework\Form\Element\Select;
@@ -213,7 +213,9 @@ class PostsCustomPosts extends AbstractGenerator {
 
     protected function _getData($count, $startIndex) {
         global $post, $wp_query;
-        $tmpPost = $post;
+        $tmpPost          = $post;
+
+        $identifyDateTime = $this->data->get('identifydatetime', 0);
 
         if (has_filter('the_content', 'siteorigin_panels_filter_content')) {
             $siteorigin_panels_filter_content = true;
@@ -390,8 +392,14 @@ class PostsCustomPosts extends AbstractGenerator {
             $userID                  = get_the_author_meta('ID');
             $record['author_url']    = get_author_posts_url($userID);
             $record['author_avatar'] = get_avatar_url($userID);
-            $record['date']          = get_the_date();
-            $record['modified']      = get_the_modified_date();
+
+            if ($identifyDateTime) {
+                $record['date']     = get_the_date('Y-m-d H:i:s');
+                $record['modified'] = get_the_modified_date('Y-m-d H:i:s');
+            } else {
+                $record['date']     = get_the_date();
+                $record['modified'] = get_the_modified_date();
+            }
 
             $thumbnail_id             = get_post_thumbnail_id($post->ID);
             $record['featured_image'] = wp_get_attachment_image_url($thumbnail_id, 'full');
@@ -477,7 +485,7 @@ class PostsCustomPosts extends AbstractGenerator {
 
             foreach ($taxonomies AS $taxonomy) {
                 $post_terms = wp_get_object_terms($post->ID, $taxonomy, $args);
-                $taxonomy = str_replace('-', '', $taxonomy);
+                $taxonomy   = str_replace('-', '', $taxonomy);
 
                 for ($j = 0; $j < count($post_terms); $j++) {
                     $record[$taxonomy . '_' . ($j + 1)]                  = $post_terms[$j]->name;
@@ -576,7 +584,7 @@ class PostsCustomPosts extends AbstractGenerator {
         $wp_query->post = $tmpPost;
         wp_reset_postdata();
 
-        if ($this->data->get('identifydatetime', 0)) {
+        if ($identifyDateTime) {
             $translate_dates = $this->data->get('translatedate', '');
             $translateValue  = explode(PHP_EOL, $translate_dates);
             $translate       = array();

@@ -50,7 +50,7 @@ class Number extends Text {
             'value'        => $this->getValue(),
             'style'        => $this->getStyle(),
             'autocomplete' => 'off'
-        ), false);
+        ), false, false);
 
         $html .= $this->post();
 

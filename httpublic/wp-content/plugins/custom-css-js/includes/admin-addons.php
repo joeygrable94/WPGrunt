@@ -117,17 +117,17 @@ class CustomCSSandJS_Addons {
             array(
                 'ID' => 1,
                 'post_author' => $users[0]->display_name,
-                'title' => date_i18n( $datef, time() - 86400 ),
+                'title' => date_i18n( $datef, mktime( 8, 3, 0, 3, 20, 1996 ) ),
             ),
             array(
                 'ID' => 2,
                 'post_author' => isset($users[1]) ? $users[1]->display_name : $users[0]->display_name,
-                'title' => date_i18n( $datef, time() - 87639),
+                'title' => date_i18n( $datef, mktime( 8, 20, 0, 6, 20, 1997 ) ),
             ),
             array(
                 'ID' => 3,
                 'post_author' => isset($users[2]) ? $users[2]->display_name : $users[0]->display_name,
-                'title' => date_i18n( $datef, time() - 97639),
+                'title' => date_i18n( $datef, mktime( 5, 37, 0, 9, 22, 1998 ) ),
             ),
         );
 ?>
@@ -168,7 +168,8 @@ class CustomCSSandJS_Addons {
             <td>
                 <input type="button" class="button-secondary" value="<?php esc_attr_e('Compare', 'custom-css-js'); ?>" id="revisions-compare-button" />
             </td>
-            <td colspan="2" style="text-align: center;"> &uarr; This is only an example, not real data. &uarr; </td>
+			<td colspan="2" style="text-align: center;"> <p>&uarr; This is only an example, not real data. &uarr; </p>
+			<p>Note: currently the revisions are not being saved. They start getting saved at the moment the plugin's pro version is installed.</td>
             <td>
                 <input type="button" class="button-secondary" value="<?php esc_attr_e('Delete', 'custom-css-js'); ?>" id="revisions-delete-button" />
             </td>

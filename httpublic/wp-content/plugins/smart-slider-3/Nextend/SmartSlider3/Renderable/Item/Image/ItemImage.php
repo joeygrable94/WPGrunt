@@ -6,7 +6,7 @@ namespace Nextend\SmartSlider3\Renderable\Item\Image;
 
 use Nextend\Framework\Form\Container\ContainerTable;
 use Nextend\Framework\Form\Element\Hidden;
-use Nextend\Framework\Form\Element\Mixed;
+use Nextend\Framework\Form\Element\MixedField;
 use Nextend\Framework\Form\Element\OnOff;
 use Nextend\Framework\Form\Element\Select\LinkTarget;
 use Nextend\Framework\Form\Element\Style;
@@ -148,7 +148,7 @@ class ItemImage extends AbstractItem {
         ));
 
         $size = new Fieldset\LayerWindow\FieldsetLayerWindow($container, 'item-image-misc', n2_('Size'));
-        $misc = new Mixed($size, 'size', false, 'auto|*|auto');
+        $misc = new MixedField($size, 'size', false, 'auto|*|auto');
         new Text($misc, 'size-1', n2_('Width'), '', array(
             'style'          => 'width:60px;',
             'tipLabel'       => n2_('Width'),

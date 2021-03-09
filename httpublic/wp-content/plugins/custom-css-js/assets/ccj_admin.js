@@ -268,14 +268,14 @@ jQuery(document).ready( function($) {
 		$el = $( '#editable-post-name' );
 		revert_e = $el.html();
 
-		if ( typeof postL10n === 'undefined' ) {
+		if ( typeof postL10n === 'undefined' || postL10n.cancel === '' || postL10n.ok === '' ) {
 			postL10n = {
 				ok     : wp.i18n.__( 'OK' ),
 				cancel : wp.i18n.__( 'Cancel' ),
 			}
 		}
 
-        buttons.html( '<button type="button" class="save button button-small">' + postL10n.ok + '</button> <button type="button" class="cancel button- link">' + postL10n.cancel + '</button>' );
+        buttons.html( '<button type="button" class="save button button-small">' + postL10n.ok + '</button> <button type="button" class="cancel button-link">' + postL10n.cancel + '</button>' );
 
 
         // Save permalink changes.

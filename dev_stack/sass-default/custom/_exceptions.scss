@@ -4,53 +4,5 @@
 
 
 // --------------------------------------------------
-// NAVIGATION
-	// page numbers
-	.page-numbers.current { @extend .f-body-bold; }
-
-
-// --------------------------------------------------
-// WP FORMS
-	.wpforms-title {
-		@extend h6;
-	}
-	.wpforms-container .wpforms-field-sublabel {
-		font-size: pixels(1rem);
-		font-size: 1rem;
-		font-color: $color-lightgrey;
-	}
-	.wpforms-required-label {
-		color: red;
-		font-weight: normal;
-	}
-	.wpforms-submit {
-		@extend .button-primary;
-	}
-
-
-// --------------------------------------------------
-// TYPOGRAPHY
-	// pullquote callout blockquote
-	.wp-block-pullquote {
-		padding: 0;
-		text-align: center;
-		blockquote { border-left: none; }
-		& p {
-			font-size: pixels(mscale($font_min, 1));
-			font-size: mscale($font_min, 1);
-		}
-		& cite { color: $color-primary; }
-	}
-
-
-// --------------------------------------------------
-// TABLES
-	.wp-block-table.is-style-stripes tbody tr:nth-child(odd) {
-		background-color: lighten($color-lightgrey,12%);
-	}
-
-
-// --------------------------------------------------
 // 
-
 

@@ -17,9 +17,9 @@ Js::addFirstCode("new N2Classes.SliderPreview();");
 ?>
 <div class="n2_preview">
     <form target="n2_preview__device_screen_inner_frame" action="<?php echo $this->getUrlPreviewFull($this->getSliderID()); ?>" method="post">
-        <input type="hidden" name="sliderData" value="<?php echo Sanitize::esc_attr(json_encode($this->sliderData)); ?>"/>
-        <input type="hidden" name="slidesData" value="<?php echo Sanitize::esc_attr(json_encode($this->slidesData)); ?>"/>
-        <input type="hidden" name="generatorData" value="<?php echo Sanitize::esc_attr(json_encode($this->generatorData)); ?>"/>
+        <input type="hidden" name="sliderData" value="<?php echo Sanitize::esc_attr(json_encode($this->sliderData)); ?>">
+        <input type="hidden" name="slidesData" value="<?php echo Sanitize::esc_attr(json_encode($this->slidesData)); ?>">
+        <input type="hidden" name="generatorData" value="<?php echo Sanitize::esc_attr(json_encode($this->generatorData)); ?>">
     </form>
     <div class="n2_preview__ruler">
         <div class="n2_preview__ruler_label"></div>

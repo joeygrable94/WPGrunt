@@ -36,15 +36,6 @@
 
 
 
-// LINKS
-.link-inverted {
-	color: $color-white;
-}
-
-
-
-
-
 // NAVIGATION
 ul.menu {
 	& li {
@@ -93,40 +84,5 @@ ul.menu {
 		min-width: 100%;
 		min-height: 100%;
 		object-fit: cover;
-	}
-}
-
-
-
-
-
-.link-color-default,
-.link-color-gcc,
-.link-color-orange, {
-	color: $color-gcc-orange;
-	&:hover {
-		text-decoration: underline;
-		color: darken($color-gcc-orange, 10%);
-	}
-	&:focus {
-		color: darken($color-gcc-orange, 10%);
-	}
-	&:visited {
-		color: $color-gcc-orange;
-	}
-}
-.link-color-gcm,
-.link-color-navy,
-.link-color-blue, {
-	color: $color-gcm-navy;
-	&:hover {
-		text-decoration: underline;
-		color: darken($color-gcm-navy, 10%);
-	}
-	&:focus {
-		color: darken($color-gcm-navy, 10%);
-	}
-	&:visited {
-		color: $color-gcm-navy;
 	}
 }

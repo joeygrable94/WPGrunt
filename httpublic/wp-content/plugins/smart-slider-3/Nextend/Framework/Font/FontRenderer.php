@@ -86,7 +86,8 @@ class FontRenderer {
 
         $template = '';
         foreach (self::$mode[$mode]['selectors'] AS $s => $style) {
-            if (!in_array($style, $search) || !empty($replace[array_search($style, $search)])) {
+            $key = array_search($style, $search);
+            if (is_numeric($key) && !empty($replace[$key])) {
                 $template .= $s . "{" . $style . "}";
             }
         }

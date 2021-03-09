@@ -13,7 +13,7 @@ if (mktime(0, 0, 0, 11, 26, 2020) <= $current && $current <= mktime(0, 0, 0, 12,
         add_action('admin_notices', function () {
             ?>
             <div class="notice notice-info is-dismissible" data-ss3dismissable="ss3_bf_2020" style="display:grid;grid-template-columns: 100px auto;padding-top: 25px; padding-bottom: 22px;">
-                <img alt="Smart Slider 3" src="<?php echo ResourceTranslator::toUrl('$ss3-admin$/images/notice.png'); ?>" width="74px" height="74px" style="grid-row: 1 / 4; align-self: center;justify-self: center"/>
+                <img alt="Smart Slider 3" src="<?php echo ResourceTranslator::toUrl('$ss3-admin$/images/notice.png'); ?>" width="74px" height="74px" style="grid-row: 1 / 4; align-self: center;justify-self: center">
                 <h3 style="margin:0;">Smart Slider 3 Pro Black Friday Deal</h3>
                 <p style="margin:0 0 2px;">Don't miss out on our biggest sale of the year! Get your
                     <b>Smart Slider 3 Pro plan</b> with <b>40% OFF</b>! Limited time offer expires on December 1.</p>
@@ -28,7 +28,7 @@ if (mktime(0, 0, 0, 11, 26, 2020) <= $current && $current <= mktime(0, 0, 0, 12,
 
         add_action('admin_footer', function () {
             ?>
-            <script type="text/javascript">
+            <script>
                 (function ($) {
                     $(function () {
                         setTimeout(function () {
